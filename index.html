@@ -230,7 +230,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 }
 .bh-left{position:relative;z-index:1;}
 .bh-label{font-size:13px;color:rgba(245,240,232,0.5);margin-bottom:6px;}
-.bh-amount{font-family:'Syne',sans-serif;font-size:52px;font-weight:800;color:var(--cream);letter-spacing:-1px;line-height:1;}
+.bh-amount{font-family:'DM Sans',sans-serif;font-size:48px;font-weight:700;color:var(--cream);letter-spacing:-1px;line-height:1;}
 .bh-sub{font-size:14px;color:rgba(245,240,232,0.45);margin-top:6px;}
 .bh-pill{
   display:inline-flex;align-items:center;gap:6px;margin-top:16px;
@@ -302,7 +302,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
   border-radius:18px;padding:22px 24px;
 }
 .stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;}
-.stat-value{font-family:'Syne',sans-serif;font-size:26px;font-weight:800;color:var(--navy);}
+.stat-value{font-family:'DM Sans',sans-serif;font-size:26px;font-weight:700;color:var(--navy);}
 .stat-change{font-size:13px;margin-top:4px;}
 .stat-change.up{color:var(--green);}
 .stat-change.down{color:var(--red);}
@@ -366,7 +366,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 .tx-name{font-size:15px;font-weight:500;color:var(--navy);}
 .tx-meta{font-size:12px;color:var(--muted);margin-top:2px;}
 .tx-right{text-align:right;}
-.tx-amt{font-family:'Syne',sans-serif;font-size:16px;font-weight:700;}
+.tx-amt{font-family:'DM Sans',sans-serif;font-size:15px;font-weight:700;}
 .tx-amt.neg{color:var(--navy);}
 .tx-amt.pos{color:var(--green);}
 .tx-cb{font-size:12px;color:var(--green);margin-top:1px;}
@@ -390,7 +390,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
   display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:14px;
 }
 .offer-store{font-size:14px;font-weight:500;color:var(--navy);}
-.offer-pct{font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--navy);margin:4px 0;}
+.offer-pct{font-family:'DM Sans',sans-serif;font-size:26px;font-weight:700;color:var(--navy);margin:4px 0;}
 .offer-note{font-size:12px;color:var(--muted);}
 .offer-auto{
   display:inline-flex;align-items:center;gap:4px;margin-top:10px;
@@ -441,7 +441,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 .setting-arrow{margin-left:auto;color:var(--muted);font-size:18px;}
 
 /* Stats page charts */
-.chart-bar-wrap{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:16px;}
+.chart-bar-wrap{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:16px;position:relative;}
 .bar{
   flex:1;background:var(--cream2);border-radius:6px 6px 0 0;
   position:relative;transition:background 0.15s;cursor:pointer;min-width:0;
@@ -452,6 +452,13 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
   position:absolute;bottom:-22px;left:0;right:0;text-align:center;
   font-size:11px;color:var(--muted);
 }
+.bar-tooltip{
+  position:absolute;top:-32px;left:50%;transform:translateX(-50%);
+  background:var(--navy);color:var(--cream);border-radius:8px;
+  padding:4px 8px;font-size:12px;font-weight:600;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity 0.15s;z-index:10;
+}
+.bar:hover .bar-tooltip{opacity:1;}
 .donut-wrap{display:flex;align-items:center;gap:32px;padding:16px 0;}
 .legend-item{display:flex;align-items:center;gap:10px;margin-bottom:10px;}
 .legend-dot{width:12px;height:12px;border-radius:50%;flex-shrink:0;}
@@ -557,6 +564,31 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
   transition:background 0.12s,color 0.12s;font-weight:500;
 }
 .offer-filter-btn.active{background:var(--navy);color:var(--cream);}
+
+/* ── SIDE AD (full right panel) ── */
+.side-ad-overlay{
+  position:fixed;inset:0;background:rgba(10,10,30,0.6);z-index:250;
+  display:flex;align-items:center;justify-content:flex-end;
+  opacity:0;pointer-events:none;transition:opacity 0.3s;backdrop-filter:blur(3px);
+}
+.side-ad-overlay.open{opacity:1;pointer-events:all;}
+.side-ad-panel{
+  width:380px;height:100vh;background:var(--white);
+  display:flex;flex-direction:column;
+  transform:translateX(100%);transition:transform 0.35s cubic-bezier(.4,0,.2,1);
+  overflow-y:auto;
+}
+.side-ad-overlay.open .side-ad-panel{transform:translateX(0);}
+.side-ad-close{
+  position:absolute;top:16px;right:16px;
+  background:rgba(255,255,255,0.15);border:none;border-radius:50%;
+  width:36px;height:36px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;color:var(--cream);font-size:18px;transition:background 0.15s;z-index:2;
+}
+
+/* location chip clickable */
+.location-chip{cursor:pointer;transition:background 0.15s;}
+.location-chip:hover{background:rgba(59,91,219,0.2)!important;}
 
 /* ── MODAL OVERLAY ── */
 .modal-overlay{
@@ -853,7 +885,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             </div>
           </div>
         </div>
-        <button class="topbar-btn"><i class="ti ti-settings"></i></button>
+        <button class="topbar-btn" onclick="openSettings()"><i class="ti ti-settings"></i></button>
         <button class="logout-btn" onclick="doLogout()"><i class="ti ti-logout"></i> Logout</button>
       </div>
     </div>
@@ -876,20 +908,18 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="bh-left">
           <div class="bh-label">Dein Punktestand</div>
           <div class="bh-amount">2.840 Pts</div>
-          <div class="bh-sub">= <strong style="color:rgba(245,240,232,0.85);">€28,40 auszahlbar</strong> · 1 Pt pro €1 Ausgabe · 100 Pts = €1</div>
-          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+312 Punkte diesen Monat</div>
+          <div class="bh-sub">= <strong style="color:rgba(245,240,232,0.85);">€28,40 auszahlbar</strong> · 1 Pt pro €1 · 100 Pts = €1</div>
+          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+201 Punkte heute</div>
         </div>
         <div class="bh-right">
-          <button class="bh-action" onclick="openSendMoney()"><i class="ti ti-arrow-up"></i> Geld senden</button>
-          <button class="bh-action" onclick="openTopUp()"><i class="ti ti-arrow-down"></i> Aufladen</button>
           <button class="bh-action" onclick="openPayNow()"><i class="ti ti-qrcode"></i> Jetzt zahlen</button>
           <button class="bh-action payout" onclick="openPayout()"><i class="ti ti-cash"></i> Punkte auszahlen</button>
         </div>
       </div>
 
-      <!-- Points info bar with voucher suggestions -->
+      <!-- Voucher chips -->
       <div class="points-info-bar">
-        <div class="pts-eq">💡 <strong>1 Punkt</strong> pro €1 Ausgabe · <strong>100 Punkte</strong> = €1,00 auszahlbar · Aktuell: <strong style="color:var(--navy);">2.840 Pts = €28,40</strong></div>
+        <div class="pts-eq">🎁 Punkte einlösen:</div>
         <div class="voucher-chips">
           <div class="voucher-chip" onclick="openVoucher('Campus Café','500','€5')"><i class="ti ti-coffee" style="font-size:12px;"></i> €5 Campus Café (500 Pts)</div>
           <div class="voucher-chip" onclick="openVoucher('REWE','1.000','€10')"><i class="ti ti-shopping-cart" style="font-size:12px;"></i> €10 REWE (1.000 Pts)</div>
@@ -937,7 +967,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(1)">
               <div class="tx-ico" style="background:#e3eeff;">📚</div>
               <div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">Gestern · 20% Studentenrabatt</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€18,40</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€18,40</div><div class="tx-cb">+18 Punkte</div></div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(2)">
               <div class="tx-ico" style="background:#efffee;">💸</div>
@@ -947,12 +977,12 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(3)">
               <div class="tx-ico" style="background:#f5f4f0;">🍽️</div>
               <div class="tx-inf"><div class="tx-name">Mensa Mittagessen</div><div class="tx-meta">19. Mai · Studentenpreis</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€3,20</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€3,20</div><div class="tx-cb">+3 Punkte</div></div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(4)">
               <div class="tx-ico" style="background:#fff8e8;">🛒</div>
               <div class="tx-inf"><div class="tx-name">REWE Partnerangebot</div><div class="tx-meta">17. Mai · 8% Cashback</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€24,80</div><div class="tx-cb">+198 Punkte</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€24,80</div><div class="tx-cb">+25 Punkte</div></div>
             </div>
           </div>
         </div>
@@ -998,7 +1028,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
     <div class="page" id="tab-card">
       <div class="sec-hdr" style="margin-bottom:16px;">
         <div class="sec-title" style="font-size:22px;">Angebote in deiner Nähe</div>
-        <span class="pill blue"><i class="ti ti-map-pin" style="font-size:12px;"></i> Regensburg · Galgenberg</span>
+        <span class="pill blue location-chip" id="locationChip" onclick="openLocationPicker()" style="cursor:pointer;"><i class="ti ti-map-pin" style="font-size:12px;"></i> <span id="locationLabel">Regensburg · Galgenberg</span></span>
       </div>
 
       <!-- Map card -->
@@ -1550,8 +1580,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           </div>
 
           <div style="display:flex;gap:10px;margin-top:14px;">
-            <button style="flex:1;background:var(--navy);color:var(--cream);border:none;border-radius:12px;padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;"><i class="ti ti-qrcode"></i> QR-Code zeigen</button>
-            <button style="flex:1;background:var(--cream2);color:var(--navy);border:none;border-radius:12px;padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;"><i class="ti ti-download"></i> Herunterladen</button>
+            <button style="flex:1;background:var(--navy);color:var(--cream);border:none;border-radius:12px;padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" onclick="openPayNow()"><i class="ti ti-qrcode"></i> QR-Code zeigen</button>
+            <button class="wallet-btn" style="flex:1;border-radius:12px;padding:14px;justify-content:center;" onclick="openWalletAdd()"><i class="ti ti-wallet" style="font-size:14px;"></i> Zu Wallet hinzufügen</button>
           </div>
         </div>
 
@@ -1594,7 +1624,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
       </div>
 
       <!-- Payment methods linked -->
-      <div class="sec-hdr"><div class="sec-title">Verknüpfte Zahlungsmethoden</div><button class="sec-link">+ Neue hinzufügen</button></div>
+      <div class="sec-hdr"><div class="sec-title">Verknüpfte Zahlungsmethoden</div><button class="sec-link" onclick="openAddPayment()">+ Neue hinzufügen</button></div>
       <div class="tx-table">
         <div class="tx-row">
           <div class="tx-ico" style="background:#e3eeff;font-size:18px;">💳</div>
@@ -1637,10 +1667,10 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
               <text x="60" y="72" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#7A7A8C">gesamt</text>
             </svg>
             <div>
-              <div class="legend-item"><div class="legend-dot" style="background:var(--navy);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Essen & Trinken</div><div style="font-size:12px;color:var(--muted);">€118 · 38%</div></div></div>
-              <div class="legend-item"><div class="legend-dot" style="background:var(--blue);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Bücher & Uni</div><div style="font-size:12px;color:var(--muted);">€59 · 19%</div></div></div>
-              <div class="legend-item"><div class="legend-dot" style="background:var(--green);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Transport</div><div style="font-size:12px;color:var(--muted);">€44 · 14%</div></div></div>
-              <div class="legend-item"><div class="legend-dot" style="background:var(--gold);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Sonstiges</div><div style="font-size:12px;color:var(--muted);">€91 · 29%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Essen & Trinken','€118',38,'var(--navy)')"><div class="legend-dot" style="background:var(--navy);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Essen & Trinken</div><div style="font-size:12px;color:var(--muted);">€118 · 38%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Bücher & Uni','€59',19,'var(--blue)')"><div class="legend-dot" style="background:var(--blue);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Bücher & Uni</div><div style="font-size:12px;color:var(--muted);">€59 · 19%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Transport','€44',14,'var(--green)')"><div class="legend-dot" style="background:var(--green);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Transport</div><div style="font-size:12px;color:var(--muted);">€44 · 14%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Sonstiges','€91',29,'var(--gold)')"><div class="legend-dot" style="background:var(--gold);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Sonstiges</div><div style="font-size:12px;color:var(--muted);">€91 · 29%</div></div></div>
             </div>
           </div>
         </div>
@@ -1677,8 +1707,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
       <!-- Premium upgrade button -->
       <button class="premium-upgrade-btn" id="premiumUpgradeBtn" onclick="showPremiumUpgrade()">
         <i class="ti ti-star-filled"></i>
-        Upgrade zu UniCash Premium – nur €3,99/Monat
-        <span style="margin-left:auto;font-size:13px;opacity:0.75;">Werbefrei · 50+ Deals →</span>
+        <div style="display:flex;flex-direction:column;text-align:left;gap:3px;">
+          <span>Upgrade zu UniCash Premium · €3,99/Monat</span>
+          <span style="font-size:12px;font-weight:400;opacity:0.85;">✓ Werbefrei &nbsp; ✓ 2× Punkte &nbsp; ✓ 50+ exklusive Deals</span>
+        </div>
+        <span style="margin-left:auto;opacity:0.75;">→</span>
       </button>
 
       <!-- Points payout section -->
@@ -1720,11 +1753,11 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div>
           <div class="sec-hdr"><div class="sec-title">Kontoeinstellungen</div></div>
           <div class="card">
-            <div class="setting-item"><div class="setting-ico"><i class="ti ti-user-edit"></i></div><div><div class="setting-label">Profil bearbeiten</div><div class="setting-sub">Persönliche Daten aktualisieren</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
-            <div class="setting-item"><div class="setting-ico"><i class="ti ti-bell"></i></div><div><div class="setting-label">Benachrichtigungen</div><div class="setting-sub">Angebote, Cashback, Zahlungen</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
-            <div class="setting-item"><div class="setting-ico"><i class="ti ti-lock"></i></div><div><div class="setting-label">Sicherheit & PIN</div><div class="setting-sub">PIN ändern oder Face ID aktivieren</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
-            <div class="setting-item"><div class="setting-ico"><i class="ti ti-link"></i></div><div><div class="setting-label">Verbundene Konten</div><div class="setting-sub">Banking, Apple Pay, Google Pay</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
-            <div class="setting-item" style="border:none;"><div class="setting-ico"><i class="ti ti-shield"></i></div><div><div class="setting-label">Datenschutz & Daten</div><div class="setting-sub">DSGVO-Einstellungen, Datenexport</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
+            <div class="setting-item" onclick="openSettingDetail('Profil bearbeiten','ti-user-edit',`<div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-user'></i></div><div><div class='modal-detail-label'>Name</div><div class='modal-detail-val'>Max Mustermann</div></div></div><div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-mail'></i></div><div><div class='modal-detail-label'>E-Mail</div><div class='modal-detail-val'>max.mustermann@stud.uni-regensburg.de</div></div></div><div class='modal-detail-row' style='border:none;'><div class='modal-detail-ico'><i class='ti ti-phone'></i></div><div><div class='modal-detail-label'>Telefon</div><div class='modal-detail-val'>+49 151 ••••••••</div></div></div><button class='modal-cta' style='margin-top:20px;'>Änderungen speichern</button>`)"><div class="setting-ico"><i class="ti ti-user-edit"></i></div><div><div class="setting-label">Profil bearbeiten</div><div class="setting-sub">Persönliche Daten aktualisieren</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
+            <div class="setting-item" onclick="openSettingDetail('Benachrichtigungen','ti-bell',`<div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-discount-2'></i></div><div><div class='modal-detail-label'>Neue Angebote</div><div class='modal-detail-val'>Sofort benachrichtigen</div></div><div style='margin-left:auto;'><div style='width:44px;height:24px;background:var(--navy);border-radius:12px;position:relative;cursor:pointer;'><div style='width:20px;height:20px;background:white;border-radius:50%;position:absolute;top:2px;left:22px;'></div></div></div></div><div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-coin'></i></div><div><div class='modal-detail-label'>Cashback & Punkte</div><div class='modal-detail-val'>Bei Gutschrift benachrichtigen</div></div><div style='margin-left:auto;'><div style='width:44px;height:24px;background:var(--navy);border-radius:12px;position:relative;cursor:pointer;'><div style='width:20px;height:20px;background:white;border-radius:50%;position:absolute;top:2px;left:22px;'></div></div></div></div><div class='modal-detail-row' style='border:none;'><div class='modal-detail-ico'><i class='ti ti-credit-card'></i></div><div><div class='modal-detail-label'>Zahlungen</div><div class='modal-detail-val'>Jede Transaktion bestätigen</div></div><div style='margin-left:auto;'><div style='width:44px;height:24px;background:var(--cream3);border-radius:12px;position:relative;cursor:pointer;'><div style='width:20px;height:20px;background:white;border-radius:50%;position:absolute;top:2px;left:2px;'></div></div></div></div>`)"><div class="setting-ico"><i class="ti ti-bell"></i></div><div><div class="setting-label">Benachrichtigungen</div><div class="setting-sub">Angebote, Cashback, Zahlungen</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
+            <div class="setting-item" onclick="openSettingDetail('Sicherheit & PIN','ti-lock',`<div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-lock'></i></div><div><div class='modal-detail-label'>PIN ändern</div><div class='modal-detail-val'>Zuletzt geändert: März 2026</div></div><i class='ti ti-chevron-right' style='margin-left:auto;color:var(--muted);'></i></div><div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-fingerprint'></i></div><div><div class='modal-detail-label'>Face ID / Touch ID</div><div class='modal-detail-val'>Aktiviert</div></div><div style='margin-left:auto;'><div style='width:44px;height:24px;background:var(--navy);border-radius:12px;position:relative;'><div style='width:20px;height:20px;background:white;border-radius:50%;position:absolute;top:2px;left:22px;'></div></div></div></div><div class='modal-detail-row' style='border:none;'><div class='modal-detail-ico'><i class='ti ti-device-mobile'></i></div><div><div class='modal-detail-label'>2-Faktor-Authentifizierung</div><div class='modal-detail-val'>SMS an +49 151 ••••</div></div><i class='ti ti-chevron-right' style='margin-left:auto;color:var(--muted);'></i></div>`)"><div class="setting-ico"><i class="ti ti-lock"></i></div><div><div class="setting-label">Sicherheit & PIN</div><div class="setting-sub">PIN ändern oder Face ID aktivieren</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
+            <div class="setting-item" onclick="openAddPayment()"><div class="setting-ico"><i class="ti ti-link"></i></div><div><div class="setting-label">Verbundene Konten</div><div class="setting-sub">Banking, Apple Pay, Google Pay</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
+            <div class="setting-item" style="border:none;" onclick="openSettingDetail('Datenschutz & Daten','ti-shield',`<div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-file-text'></i></div><div><div class='modal-detail-label'>Datenschutzerklärung</div><div class='modal-detail-val'>DSGVO-konform · Stand 01/2026</div></div><i class='ti ti-chevron-right' style='margin-left:auto;color:var(--muted);'></i></div><div class='modal-detail-row'><div class='modal-detail-ico'><i class='ti ti-download'></i></div><div><div class='modal-detail-label'>Daten exportieren</div><div class='modal-detail-val'>Alle deine Daten als ZIP</div></div><i class='ti ti-chevron-right' style='margin-left:auto;color:var(--muted);'></i></div><div class='modal-detail-row' style='border:none;'><div class='modal-detail-ico'><i class='ti ti-trash'></i></div><div><div class='modal-detail-label'>Konto löschen</div><div class='modal-detail-val' style='color:var(--red);'>Unwiderruflich</div></div><i class='ti ti-chevron-right' style='margin-left:auto;color:var(--muted);'></i></div>`)"><div class="setting-ico"><i class="ti ti-shield"></i></div><div><div class="setting-label">Datenschutz & Daten</div><div class="setting-sub">DSGVO-Einstellungen, Datenexport</div></div><i class="ti ti-chevron-right setting-arrow"></i></div>
           </div>
         </div>
 
@@ -1902,6 +1935,13 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
   </div><!-- /main -->
 </div><!-- /app -->
 
+<!-- ── SIDE AD OVERLAY ── -->
+<div class="side-ad-overlay" id="sideAdOverlay" onclick="closeSideAdOnBg(event)">
+  <div class="side-ad-panel" id="sideAdPanel">
+    <div id="sideAdContent" style="height:100%;"></div>
+  </div>
+</div>
+
 <!-- ── AD POPUP ── -->
 <div id="adPopup" style="
   position:fixed;bottom:32px;right:32px;z-index:300;
@@ -2064,7 +2104,6 @@ window.addEventListener('load', () => {
     wrap.appendChild(bar);
   });
 
-  // Auto-attach onclick to all offer cards
   document.querySelectorAll('#offerGrid .offer-card').forEach(card => {
     const name = card.querySelector('.offer-store')?.textContent?.trim();
     if (name) {
@@ -2089,7 +2128,74 @@ window.addEventListener('load', () => {
       row.addEventListener('click', () => openOffer(name));
     }
   });
+
+  // Bar chart with tooltip
+  const months = ['Jan','Feb','Mär','Apr','Mai','Jun'];
+  const vals   = [210, 285, 190, 340, 312, 0];
+  const max    = Math.max(...vals.filter(v => v > 0));
+  const wrap   = document.getElementById('barChart');
+  months.forEach((m, i) => {
+    const pct = vals[i] ? (vals[i] / max) * 100 : 8;
+    const bar = document.createElement('div');
+    bar.className = 'bar' + (m === 'Mai' ? ' active' : '');
+    bar.style.height = pct + '%';
+    const tooltip = vals[i] ? `<div class="bar-tooltip">€${vals[i]}</div>` : `<div class="bar-tooltip">–</div>`;
+    bar.innerHTML = tooltip + '<span class="bar-label">' + m + '</span>';
+    wrap.appendChild(bar);
+  });
 });
+
+// ══════════════════════════════════════════
+//  SETTINGS MODAL
+// ══════════════════════════════════════════
+function openSettings() {
+  openModal('Einstellungen', `
+    <div style="margin-top:8px;">
+      <div class="modal-detail-row" onclick="" style="cursor:pointer;">
+        <div class="modal-detail-ico"><i class="ti ti-bell"></i></div>
+        <div><div class="modal-detail-val">Benachrichtigungen</div><div class="modal-detail-label">Push-Nachrichten verwalten</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;">
+        <div class="modal-detail-ico"><i class="ti ti-lock"></i></div>
+        <div><div class="modal-detail-val">Sicherheit & PIN</div><div class="modal-detail-label">PIN ändern · Face ID aktivieren</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;">
+        <div class="modal-detail-ico"><i class="ti ti-credit-card"></i></div>
+        <div><div class="modal-detail-val">Zahlungsmethoden</div><div class="modal-detail-label">Karten & Apple Pay verwalten</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;">
+        <div class="modal-detail-ico"><i class="ti ti-moon"></i></div>
+        <div><div class="modal-detail-val">Dark Mode</div><div class="modal-detail-label">Erscheinungsbild anpassen</div></div>
+        <div style="margin-left:auto;">
+          <div style="width:44px;height:24px;background:var(--cream3);border-radius:12px;position:relative;cursor:pointer;" onclick="this.style.background=(this.style.background.includes('navy')?'var(--cream3)':'var(--navy)');this.querySelector('div').style.left=(this.style.background.includes('navy')?'22px':'2px')">
+            <div style="width:20px;height:20px;background:white;border-radius:50%;position:absolute;top:2px;left:2px;transition:left 0.2s;"></div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;">
+        <div class="modal-detail-ico"><i class="ti ti-language"></i></div>
+        <div><div class="modal-detail-val">Sprache</div><div class="modal-detail-label">Deutsch</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;">
+        <div class="modal-detail-ico"><i class="ti ti-shield"></i></div>
+        <div><div class="modal-detail-val">Datenschutz & DSGVO</div><div class="modal-detail-label">Datenexport · Einwilligungen</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;border:none;" onclick="showPremiumUpgrade()">
+        <div class="modal-detail-ico" style="background:rgba(212,160,23,0.1);"><i class="ti ti-star-filled" style="color:var(--gold);"></i></div>
+        <div><div class="modal-detail-val" style="color:var(--gold);">UniCash Premium</div><div class="modal-detail-label">Werbefrei · 50+ Deals · €3,99/Mon</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--gold);"></i>
+      </div>
+    </div>
+    <button class="modal-cta" style="background:rgba(232,66,74,0.1);color:var(--red);margin-top:8px;" onclick="doLogout();closeModal()">
+      <i class="ti ti-logout"></i> Abmelden
+    </button>
+  `);
+}
 
 // ══════════════════════════════════════════
 //  AD POPUP
@@ -2336,10 +2442,14 @@ function showPremiumUpgrade() {
     <div style="text-align:center;padding:28px 0 0;">
       <div style="font-size:48px;margin-bottom:16px;">⭐</div>
       <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--navy);margin-bottom:8px;">UniCash Premium</div>
-      <div style="font-size:15px;color:var(--muted);margin-bottom:28px;">Schalte 50+ exklusive Angebote und Features frei · nur €3,99/Monat</div>
+      <div style="font-size:15px;color:var(--muted);margin-bottom:20px;">Nur €3,99/Monat · Jederzeit kündbar</div>
+      <div style="background:rgba(45,198,83,0.1);border:1px solid rgba(45,198,83,0.25);border-radius:14px;padding:14px 20px;margin-bottom:24px;">
+        <div style="font-size:18px;font-weight:700;color:var(--navy);">🚫 100% Werbefrei</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">Keine Popups, keine Banner, keine Unterbrechungen</div>
+      </div>
     </div>
-    <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:28px;">
-      ${[['🎁','50+ Premium-Angebote','Flixbus, Xbox, Booking.com & mehr'],['🪙','Doppelte Punkte','2× Punkte bei ausgewählten Partnern'],['⚡','Sofort-Auszahlung','Punkte sofort auf dein Konto'],['🎯','Exklusive Deals','Vorab-Zugang zu neuen Angeboten']].map(([ico,t,s])=>`
+    <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+      ${[['🎁','50+ Premium-Angebote','Flixbus, Xbox, Booking.com & mehr'],['🪙','2× Punkte überall','Doppelte Punkte bei allen Partnern'],['⚡','Sofort-Auszahlung','Punkte sofort auf dein Konto'],['🎯','Exklusive Deals','Vorab-Zugang zu neuen Angeboten']].map(([ico,t,s])=>`
       <div style="display:flex;align-items:center;gap:14px;background:var(--cream2);border-radius:14px;padding:14px 18px;">
         <div style="font-size:24px;">${ico}</div>
         <div><div style="font-weight:600;color:var(--navy);font-size:15px;">${t}</div><div style="font-size:13px;color:var(--muted);">${s}</div></div>
@@ -2353,34 +2463,19 @@ let isPremiumUser = false;
 
 function confirmPremium() {
   isPremiumUser = true;
-
-  // Hide upgrade button on profile page
-  const btn = document.getElementById('premiumUpgradeBtn');
-  if (btn) btn.style.display = 'none';
+  updateUIForPremium();
 
   // Hide ad popup permanently
-  closeAdPopup();
   const p = document.getElementById('adPopup');
-  if (p) p.remove();
-
-  // Show premium nav item in sidebar
-  const premNav = document.getElementById('premiumNavItem');
-  if (premNav) premNav.style.display = 'flex';
-
-  // Update sidebar promo
-  const sidePromo = document.getElementById('sidebarPremiumPromo');
-  if (sidePromo) {
-    sidePromo.innerHTML = `<div style="font-size:13px;font-weight:700;color:var(--gold);">⭐ Premium aktiv</div><div style="font-size:11px;color:rgba(245,240,232,0.5);">Werbefrei · alle Deals freigeschaltet</div>`;
-    sidePromo.style.background = 'linear-gradient(135deg,rgba(212,160,23,0.25),rgba(212,160,23,0.1))';
-    sidePromo.style.cursor = 'default';
-    sidePromo.onclick = null;
-  }
+  if (p) { p.style.opacity='0'; p.style.pointerEvents='none'; p.remove(); }
+  // Close side ad
+  closeSideAd();
 
   document.getElementById('modalBody').innerHTML = `
     <div class="success-screen">
       <div class="success-icon">⭐</div>
       <div class="success-title">Willkommen bei Premium!</div>
-      <div class="success-sub">UniCash Premium ist jetzt aktiv.<br>Du bist werbefrei und hast Zugang zu allen 50+ Angeboten.</div>
+      <div class="success-sub">UniCash Premium ist jetzt aktiv.<br>Du bist <strong>werbefrei</strong> und erhältst <strong>2× Punkte</strong> bei allen Partnern.</div>
       <button class="modal-cta gold" style="margin-top:24px;" onclick="closeModal();showTab('premium',document.getElementById('premiumNavItem'))">Premium Deals ansehen →</button>
     </div>`;
 }
@@ -2672,6 +2767,268 @@ function confirmVoucher(name, value) {
       </div>
       <button class="modal-cta" onclick="closeModal()">Fertig</button>
     </div>`;
+}
+
+// ══════════════════════════════════════════
+//  HELPER: open setting detail modal
+// ══════════════════════════════════════════
+function openSettingDetail(title, icon, html) {
+  openModal(title, `<div style="margin-top:8px;">${html}</div>`);
+}
+
+// ══════════════════════════════════════════
+//  ADD PAYMENT METHOD MODAL
+// ══════════════════════════════════════════
+function openAddPayment() {
+  openModal('Zahlungsmethode hinzufügen', `
+    <div style="margin-top:8px;">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Wähle eine Zahlungsmethode:</div>
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Apple Pay','🍎','Über dein iPhone oder Apple Watch')">
+        <div class="modal-detail-ico" style="background:#fff2cc;font-size:22px;">🍎</div>
+        <div><div class="modal-detail-val">Apple Pay</div><div class="modal-detail-label">Mit Face ID bezahlen</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Google Pay','🤖','Über dein Android-Gerät')">
+        <div class="modal-detail-ico" style="background:#e8f4ff;font-size:22px;">🤖</div>
+        <div><div class="modal-detail-val">Google Pay</div><div class="modal-detail-label">Mit Android bezahlen</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Kreditkarte','💳','Visa, Mastercard oder Amex')">
+        <div class="modal-detail-ico" style="background:#e3eeff;font-size:22px;">💳</div>
+        <div><div class="modal-detail-val">Kreditkarte</div><div class="modal-detail-label">Visa, Mastercard, Amex</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;border:none;" onclick="confirmAddPayment('Bankkonto (IBAN)','🏦','Direkt vom Girokonto abbuchen')">
+        <div class="modal-detail-ico" style="background:#f0fff4;font-size:22px;">🏦</div>
+        <div><div class="modal-detail-val">Bankkonto (IBAN)</div><div class="modal-detail-label">Lastschrift von Girokonto</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+    </div>`);
+}
+function confirmAddPayment(name, ico, desc) {
+  document.getElementById('modalBody').innerHTML = `
+    <div class="success-screen">
+      <div class="success-icon">${ico}</div>
+      <div class="success-title">${name} hinzugefügt!</div>
+      <div class="success-sub">${desc}<br>Deine Zahlungsmethode ist jetzt aktiv.</div>
+      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Fertig</button>
+    </div>`;
+}
+
+// ══════════════════════════════════════════
+//  WALLET ADD MODAL
+// ══════════════════════════════════════════
+function openWalletAdd() {
+  openModal('Zu Wallet hinzufügen', `
+    <div style="margin-top:8px;">
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmWalletAdd('Apple Wallet')">
+        <div class="modal-detail-ico" style="background:#fff2cc;font-size:22px;">🍎</div>
+        <div><div class="modal-detail-val">Apple Wallet</div><div class="modal-detail-label">Studentenausweis in Wallet speichern</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;border:none;" onclick="confirmWalletAdd('Google Wallet')">
+        <div class="modal-detail-ico" style="background:#e8f4ff;font-size:22px;">🤖</div>
+        <div><div class="modal-detail-val">Google Wallet</div><div class="modal-detail-label">Auf Android-Gerät hinzufügen</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+    </div>`);
+}
+function confirmWalletAdd(wallet) {
+  document.getElementById('modalBody').innerHTML = `
+    <div class="success-screen">
+      <div class="success-icon">✅</div>
+      <div class="success-title">Zu ${wallet} hinzugefügt!</div>
+      <div class="success-sub">Dein UniCash Studentenausweis ist jetzt in deinem ${wallet} gespeichert.</div>
+      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Fertig</button>
+    </div>`;
+}
+
+// ══════════════════════════════════════════
+//  CATEGORY BREAKDOWN MODAL (Stats)
+// ══════════════════════════════════════════
+function openCategoryDetail(cat, amount, pct, color) {
+  const txMap = {
+    'Essen & Trinken': [['☕','Campus Café','Heute','−€2,55','+3 Pts'],['🍽️','Mensa','19. Mai','−€3,20','+3 Pts'],['🌮','Subway','15. Mai','−€8,90','+9 Pts'],['☕','Campus Café','14. Mai','−€3,10','+3 Pts'],['🍕','Lieferando','12. Mai','−€18,30','+18 Pts']],
+    'Bücher & Uni': [['📚','UniShop Books','Gestern','−€18,40','+18 Pts'],['📚','UniShop Books','10. Mai','−€22,60','+23 Pts'],['🖊️','Schreibwaren','5. Mai','−€8,00','+8 Pts']],
+    'Transport': [['🚌','MVV Ticket','8. Mai','−€12,00','+12 Pts'],['✈️','Flixbus','2. Mai','−€19,00','+19 Pts'],['🚌','MVV Tageskarte','28. Apr','−€9,20','+9 Pts']],
+    'Sonstiges': [['💊','DocMorris','11. Mai','−€14,50','+15 Pts'],['🛒','REWE','17. Mai','−€24,80','+25 Pts'],['🎬','CineStar','16. Mai','−€5,00','+5 Pts'],['🛒','REWE','7. Mai','−€31,20','+31 Pts']]
+  };
+  const rows = txMap[cat] || [];
+  openModal(cat, `
+    <div style="display:flex;align-items:center;gap:16px;background:var(--cream2);border-radius:14px;padding:16px 20px;margin:16px 0;">
+      <div style="width:14px;height:14px;border-radius:50%;background:${color};flex-shrink:0;"></div>
+      <div style="font-family:'DM Sans',sans-serif;font-size:28px;font-weight:700;color:var(--navy);">${amount}</div>
+      <div style="margin-left:auto;font-size:22px;font-weight:600;color:var(--muted);">${pct}%</div>
+    </div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:12px;font-weight:500;">Einzelne Transaktionen:</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      ${rows.map(([ico,name,date,amt,pts])=>`
+      <div style="display:flex;align-items:center;gap:14px;background:var(--cream2);border-radius:12px;padding:14px;">
+        <div style="width:40px;height:40px;border-radius:10px;background:var(--cream3);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;">${ico}</div>
+        <div style="flex:1;"><div style="font-size:14px;font-weight:500;color:var(--navy);">${name}</div><div style="font-size:12px;color:var(--muted);">${date}</div></div>
+        <div style="text-align:right;"><div style="font-weight:600;color:var(--navy);font-size:14px;">${amt}</div><div style="font-size:11px;color:var(--green);">${pts}</div></div>
+      </div>`).join('')}
+    </div>`);
+}
+
+// ══════════════════════════════════════════
+//  LOCATION PICKER
+// ══════════════════════════════════════════
+const locations = [
+  {name:'Regensburg · Galgenberg', label:'OTH Regensburg & Uni Regensburg'},
+  {name:'München · Maxvorstadt', label:'LMU & TU München'},
+  {name:'München · Garching', label:'TU München Campus Garching'},
+  {name:'Nürnberg · Innenstadt', label:'TH Nürnberg Georg Simon Ohm'},
+  {name:'Erlangen · Südstadt', label:'Friedrich-Alexander-Universität'},
+  {name:'Augsburg · Innenstadt', label:'Universität Augsburg'},
+  {name:'Würzburg · Sanderring', label:'Julius-Maximilians-Universität'},
+  {name:'Passau · Innstadt', label:'Universität Passau'},
+  {name:'Ingolstadt · Westpark', label:'THI – Technische Hochschule Ingolstadt'},
+  {name:'Landshut · Innenstadt', label:'Hochschule Landshut'},
+  {name:'Berlin · Mitte', label:'HU Berlin, TU Berlin, FU Berlin'},
+  {name:'Hamburg · Rotherbaum', label:'Universität Hamburg'},
+  {name:'Köln · Lindenthal', label:'Universität zu Köln'},
+];
+function openLocationPicker() {
+  openModal('Standort ändern', `
+    <div style="font-size:13px;color:var(--muted);margin:12px 0 16px;">Wähle deinen Campus oder Hochschulstandort:</div>
+    <div style="display:flex;flex-direction:column;gap:8px;">
+      ${locations.map((loc,i)=>`
+      <div onclick="setLocation('${loc.name}');closeModal();" style="display:flex;align-items:center;gap:14px;background:${loc.name===document.getElementById('locationLabel')?.textContent?'rgba(59,91,219,0.1)':'var(--cream2)'};border-radius:12px;padding:14px 16px;cursor:pointer;transition:background 0.12s;border:${loc.name===document.getElementById('locationLabel')?.textContent?'1.5px solid rgba(59,91,219,0.3)':'1.5px solid transparent'};" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='${loc.name===document.getElementById('locationLabel')?.textContent?'rgba(59,91,219,0.1)':'var(--cream2)'}'">
+        <div style="font-size:20px;">📍</div>
+        <div><div style="font-size:14px;font-weight:500;color:var(--navy);">${loc.name}</div><div style="font-size:12px;color:var(--muted);">${loc.label}</div></div>
+      </div>`).join('')}
+    </div>`);
+}
+function setLocation(name) {
+  const el = document.getElementById('locationLabel');
+  if (el) el.textContent = name;
+}
+
+// ══════════════════════════════════════════
+//  SIDE AD (full-panel rotating ads)
+// ══════════════════════════════════════════
+const sideAds = [
+  {
+    bg:'linear-gradient(160deg,#1a1b4b,#2d2f6b)',
+    emoji:'🍽️',
+    label:'Gesponsert · Regensburg',
+    title:'Atelier Restaurant',
+    sub:'Exklusives 3-Gang-Menü für Studenten – nur €18,90 statt €32,00',
+    detail:'Zeige deinen UniCash QR-Code und erhalte <strong>41% Rabatt</strong> auf das Tagesmenü.',
+    cta:'Angebot sichern',
+    badge:'−41%'
+  },
+  {
+    bg:'linear-gradient(160deg,#1a3a2a,#2d5a3a)',
+    emoji:'🎉',
+    label:'Gesponsert · Special Event',
+    title:'Student Special Day',
+    sub:'Jeden Mittwoch: 30% auf alles in teilnehmenden Regensburger Restaurants',
+    detail:'Gilt bei über <strong>15 Partnern</strong> in Regensburg – automatisch mit UniCash.',
+    cta:'Alle Partner ansehen',
+    badge:'Mittwochs'
+  },
+  {
+    bg:'linear-gradient(160deg,#3a1a1a,#6b2d2d)',
+    emoji:'🏋️',
+    label:'Gesponsert · Fitness',
+    title:'FitX Regensburg',
+    sub:'Mitgliedschaft ab €9,99/Monat – Studentenpreis mit UniCash',
+    detail:'Einfach <strong>UniCash QR-Code</strong> beim Einschreiben vorzeigen und sofort sparen.',
+    cta:'Jetzt Mitglied werden',
+    badge:'−40%'
+  }
+];
+let sideAdIndex = 0;
+let tabSwitchCount = 0;
+let sideAdShown = false;
+
+function showSideAd() {
+  if (isPremiumUser) return;
+  const ad = sideAds[sideAdIndex % sideAds.length];
+  sideAdIndex++;
+  document.getElementById('sideAdContent').innerHTML = `
+    <div style="background:${ad.bg};padding:40px 32px 32px;position:relative;min-height:260px;display:flex;flex-direction:column;justify-content:flex-end;">
+      <button onclick="closeSideAd()" style="position:absolute;top:16px;right:16px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:white;font-size:18px;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">✕</button>
+      <div style="position:absolute;top:-20px;left:32px;background:rgba(255,255,255,0.15);border-radius:20px;padding:6px 14px;font-size:11px;color:rgba(255,255,255,0.7);letter-spacing:1px;text-transform:uppercase;">${ad.label}</div>
+      <div style="font-size:64px;margin-bottom:16px;">${ad.emoji}</div>
+      <div style="display:inline-block;background:var(--gold);color:var(--navy);border-radius:8px;padding:4px 12px;font-size:13px;font-weight:700;margin-bottom:10px;width:fit-content;">${ad.badge}</div>
+      <div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:white;margin-bottom:8px;">${ad.title}</div>
+      <div style="font-size:14px;color:rgba(255,255,255,0.7);line-height:1.5;">${ad.sub}</div>
+    </div>
+    <div style="padding:28px 32px;flex:1;display:flex;flex-direction:column;">
+      <div style="font-size:15px;color:var(--navy);line-height:1.7;margin-bottom:24px;">${ad.detail}</div>
+      <div style="background:var(--cream2);border-radius:14px;padding:16px 20px;margin-bottom:20px;">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">Dein Vorteil mit UniCash</div>
+        <div style="font-size:14px;color:var(--navy);font-weight:500;">Automatisch angewendet beim Bezahlen</div>
+      </div>
+      <button style="width:100%;background:var(--navy);color:var(--cream);border:none;border-radius:14px;padding:16px;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:600;cursor:pointer;margin-bottom:10px;">${ad.cta}</button>
+      <button onclick="closeSideAd()" style="width:100%;background:none;border:none;padding:10px;color:var(--muted);cursor:pointer;font-size:14px;">Schließen</button>
+      <div style="margin-top:auto;padding-top:20px;border-top:1px solid var(--cream3);">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:8px;">Werbung entfernen mit:</div>
+        <button onclick="closeSideAd();showPremiumUpgrade();" style="width:100%;background:linear-gradient(135deg,var(--gold),#f0c040);color:var(--navy);border:none;border-radius:10px;padding:10px;font-size:13px;font-weight:700;cursor:pointer;">⭐ UniCash Premium · €3,99/Mon – Werbefrei</button>
+      </div>
+    </div>`;
+  document.getElementById('sideAdOverlay').classList.add('open');
+}
+function closeSideAd() {
+  document.getElementById('sideAdOverlay').classList.remove('open');
+}
+function closeSideAdOnBg(e) {
+  if (e.target === document.getElementById('sideAdOverlay')) closeSideAd();
+}
+
+// ══════════════════════════════════════════
+//  OVERRIDE showTab to track switches & show side ad
+// ══════════════════════════════════════════
+const _origShowTab = showTab;
+window.showTab = function(id, btn) {
+  _origShowTab(id, btn);
+  if (!isPremiumUser) {
+    tabSwitchCount++;
+    if (tabSwitchCount === 2 || (tabSwitchCount > 2 && (tabSwitchCount - 2) % 5 === 0)) {
+      setTimeout(showSideAd, 300);
+    }
+  }
+};
+
+// ══════════════════════════════════════════
+//  OVERRIDE confirmPremium to hide ALL ads & upgrade UI
+// ══════════════════════════════════════════
+function updateUIForPremium() {
+  // Hide all upgrade buttons
+  document.querySelectorAll('.premium-upgrade-btn, #premiumUpgradeBtn').forEach(el => el.style.display='none');
+  // Show premium nav
+  const premNav = document.getElementById('premiumNavItem');
+  if (premNav) premNav.style.display = 'flex';
+  // Update sidebar promo
+  const sidePromo = document.getElementById('sidebarPremiumPromo');
+  if (sidePromo) {
+    sidePromo.innerHTML = `<div style="font-size:13px;font-weight:700;color:var(--gold);">⭐ Premium aktiv</div><div style="font-size:11px;color:rgba(245,240,232,0.5);">Werbefrei · 2× Punkte überall</div>`;
+    sidePromo.style.background = 'linear-gradient(135deg,rgba(212,160,23,0.25),rgba(212,160,23,0.1))';
+    sidePromo.onclick = null; sidePromo.style.cursor='default';
+  }
+  // Add 2× badge to all offer cards
+  document.querySelectorAll('.offer-card').forEach(card => {
+    if (!card.querySelector('.premium-badge')) {
+      const badge = document.createElement('div');
+      badge.className = 'offer-auto';
+      badge.style.cssText = 'background:rgba(212,160,23,0.1);color:var(--gold);';
+      badge.innerHTML = '<i class="ti ti-star-filled" style="font-size:11px;"></i> 2× Punkte';
+      card.appendChild(badge);
+    }
+    // Remove locked styling
+    card.classList.remove('locked');
+    const lockOverlay = card.querySelector('.locked-overlay');
+    if (lockOverlay) lockOverlay.remove();
+    const lockText = card.querySelector('[style*="ti-lock"]');
+    // Keep premium badge but update text
+  });
+  // Remove upgrade banners from offers page
+  document.querySelectorAll('[onclick*="showPremiumUpgrade"]').forEach(el => {
+    if (el.tagName === 'BUTTON' && el.closest('#tab-offers')) el.closest('div[style*="gradient"]').style.display='none';
+  });
 }
 </script>
 </body>
