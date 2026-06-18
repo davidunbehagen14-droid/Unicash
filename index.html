@@ -909,7 +909,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="bh-label">Dein Punktestand</div>
           <div class="bh-amount">2.840 Pts</div>
           <div class="bh-sub">= <strong style="color:rgba(245,240,232,0.85);">€28,40 auszahlbar</strong> · 1 Pt pro €1 · 100 Pts = €1</div>
-          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+201 Punkte heute</div>
+          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+49 Punkte heute</div>
         </div>
         <div class="bh-right">
           <button class="bh-action" onclick="openPayNow()"><i class="ti ti-qrcode"></i> Jetzt zahlen</button>
@@ -2088,47 +2088,8 @@ function setOfferFilter(btn, cat) {
   });
 }
 
-// Bar chart
+// Bar chart + auto-attach
 window.addEventListener('load', () => {
-  const months = ['Jan','Feb','Mär','Apr','Mai','Jun'];
-  const vals   = [210, 285, 190, 340, 312, 0];
-  const max    = Math.max(...vals.filter(v => v > 0));
-  const wrap   = document.getElementById('barChart');
-  months.forEach((m, i) => {
-    const pct = vals[i] ? (vals[i] / max) * 100 : 8;
-    const bar = document.createElement('div');
-    bar.className = 'bar' + (m === 'Mai' ? ' active' : '');
-    bar.style.height = pct + '%';
-    bar.title = vals[i] ? '€' + vals[i] : 'Bald verfügbar';
-    bar.innerHTML = '<span class="bar-label">' + m + '</span>';
-    wrap.appendChild(bar);
-  });
-
-  document.querySelectorAll('#offerGrid .offer-card').forEach(card => {
-    const name = card.querySelector('.offer-store')?.textContent?.trim();
-    if (name) {
-      card.style.cursor = 'pointer';
-      card.addEventListener('click', () => openOffer(name));
-    }
-  });
-
-  // Auto-attach onclick to stats tx rows
-  const statsTxRows = document.querySelectorAll('#tab-stats .tx-table .tx-row');
-  statsTxRows.forEach((row, i) => {
-    if (i < txData.length) {
-      row.style.cursor = 'pointer';
-      row.addEventListener('click', () => openTx(i));
-    }
-  });
-
-  // Auto-attach onclick to nearby list in map tab
-  document.querySelectorAll('#tab-card .nearby-list .tx-row').forEach(row => {
-    const name = row.querySelector('.tx-name')?.textContent?.trim();
-    if (name) {
-      row.addEventListener('click', () => openOffer(name));
-    }
-  });
-
   // Bar chart with tooltip
   const months = ['Jan','Feb','Mär','Apr','Mai','Jun'];
   const vals   = [210, 285, 190, 340, 312, 0];
@@ -2142,6 +2103,29 @@ window.addEventListener('load', () => {
     const tooltip = vals[i] ? `<div class="bar-tooltip">€${vals[i]}</div>` : `<div class="bar-tooltip">–</div>`;
     bar.innerHTML = tooltip + '<span class="bar-label">' + m + '</span>';
     wrap.appendChild(bar);
+  });
+
+  document.querySelectorAll('#offerGrid .offer-card').forEach(card => {
+    const name = card.querySelector('.offer-store')?.textContent?.trim();
+    if (name) {
+      card.style.cursor = 'pointer';
+      card.addEventListener('click', () => openOffer(name));
+    }
+  });
+
+  const statsTxRows = document.querySelectorAll('#tab-stats .tx-table .tx-row');
+  statsTxRows.forEach((row, i) => {
+    if (i < txData.length) {
+      row.style.cursor = 'pointer';
+      row.addEventListener('click', () => openTx(i));
+    }
+  });
+
+  document.querySelectorAll('#tab-card .nearby-list .tx-row').forEach(row => {
+    const name = row.querySelector('.tx-name')?.textContent?.trim();
+    if (name) {
+      row.addEventListener('click', () => openOffer(name));
+    }
   });
 });
 
