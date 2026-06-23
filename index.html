@@ -2713,7 +2713,11 @@ function openOffer(name) {
       ? `<button class="modal-cta gold" onclick="showPremiumUpgrade()"><i class="ti ti-star-filled"></i> Upgrade to Premium · €3.99/mo</button>`
       : (d.online
           ? `<button class="modal-cta" onclick="discoverCode('${name}')"><i class="ti ti-world"></i> Discover Now</button>`
-          : `<button class="modal-cta" onclick="redeemOffer('${name}')"><i class="ti ti-check"></i> Claim offer now</button>`)
+          : `<div style="display:flex;align-items:center;gap:14px;background:rgba(45,198,83,0.08);border:1px solid rgba(45,198,83,0.25);border-radius:14px;padding:16px 18px;margin-top:8px;">
+               <div style="font-size:22px;flex-shrink:0;">⚡</div>
+               <div style="font-size:13px;color:var(--navy);line-height:1.5;">This offer is <strong>active automatically</strong> — your student discount and points are applied the moment you pay with your UniCash Wallet. There's nothing to claim and no code needed.</div>
+             </div>
+             <button class="modal-cta" style="background:var(--cream2);color:var(--navy);margin-top:12px;" onclick="closeModal()">Got it</button>`)
     }
   `);
 }
