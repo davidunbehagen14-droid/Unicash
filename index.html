@@ -909,7 +909,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="bh-label">Your Points Balance</div>
           <div class="bh-amount">2,840 Pts</div>
           <div class="bh-sub">= <strong style="color:rgba(245,240,232,0.85);">€28.40 redeemable</strong> · 1 Pt per €1 · 100 Pts = €1</div>
-          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+2 Points today</div>
+          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+3 Points today</div>
         </div>
         <div class="bh-right">
           <button class="bh-action" onclick="openPayNow()"><i class="ti ti-qrcode"></i> Show QR Code</button>
@@ -950,7 +950,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="stat-card">
           <div class="stat-label">Expenses (June)</div>
           <div class="stat-value">€65</div>
-          <div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> vs. last month</div>
+          <div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> +12% vs. last month</div>
         </div>
         <div class="stat-card" id="homeCashbackCard">
           <div class="stat-label">Cashback Earned</div>
@@ -980,27 +980,27 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(0)">
               <div class="tx-ico" style="background:#fff2cc;">☕</div>
               <div class="tx-inf"><div class="tx-name">Campus Café</div><div class="tx-meta">Today, 09:14 · Discount applied</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€2.55</div><div class="tx-cb">+2 Points</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€3.00</div><div class="tx-cb">+3 Points</div></div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(1)">
-              <div class="tx-ico" style="background:#e3eeff;">📚</div>
-              <div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">Yesterday · 20% student discount</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€18.40</div><div class="tx-cb">+18 Points</div></div>
+              <div class="tx-ico" style="background:#f5f4f0;">🍽️</div>
+              <div class="tx-inf"><div class="tx-name">Mensa Lunch</div><div class="tx-meta">21 Jun · Student price</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€4.00</div><div class="tx-cb">+4 Points</div></div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(2)">
-              <div class="tx-ico" style="background:#efffee;">💸</div>
-              <div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">20 May · Automatic</div></div>
-              <div class="tx-right"><div class="tx-amt pos">+820 Pts</div></div>
+              <div class="tx-ico" style="background:#e3eeff;">📚</div>
+              <div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">17 Jun · 20% student discount</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€18.00</div><div class="tx-cb">+18 Points</div></div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(3)">
-              <div class="tx-ico" style="background:#f5f4f0;">🍽️</div>
-              <div class="tx-inf"><div class="tx-name">Mensa Lunch</div><div class="tx-meta">19 May · Student price</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€3.20</div><div class="tx-cb">+3 Points</div></div>
+              <div class="tx-ico" style="background:#fff8e8;">🛒</div>
+              <div class="tx-inf"><div class="tx-name">REWE Partner Offer</div><div class="tx-meta">14 Jun · 3% Cashback</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€25.00</div><div class="tx-cb">+25 Points</div></div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(4)">
-              <div class="tx-ico" style="background:#fff8e8;">🛒</div>
-              <div class="tx-inf"><div class="tx-name">REWE Partner Offer</div><div class="tx-meta">17 May · 3% Cashback</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+24 Points</div></div>
+              <div class="tx-ico" style="background:#fff0e8;">🌮</div>
+              <div class="tx-inf"><div class="tx-name">Subway</div><div class="tx-meta">9 Jun · Student menu</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€10.00</div><div class="tx-cb">+10 Points</div></div>
             </div>
           </div>
         </div>
@@ -1424,7 +1424,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="offer-card" data-cat="shopping">
           <div class="offer-logo" style="background:#fff8e8;">🛒</div>
           <div class="offer-store">REWE</div>
-          <div class="offer-pct">8% CB</div>
+          <div class="offer-pct">3% CB</div>
           <div class="offer-note">Groceries cashback</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
@@ -1677,18 +1677,18 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="donut-wrap">
             <svg width="120" height="120" viewBox="0 0 120 120">
               <circle cx="60" cy="60" r="48" fill="none" stroke="#EDE8DC" stroke-width="20"/>
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#1A1B4B" stroke-width="20" stroke-dasharray="120 181" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#3B5BDB" stroke-width="20" stroke-dasharray="60 241" stroke-dashoffset="-120" transform="rotate(-90 60 60)"/>
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#2DC653" stroke-width="20" stroke-dasharray="45 256" stroke-dashoffset="-180" transform="rotate(-90 60 60)"/>
-              <circle cx="60" cy="60" r="48" fill="none" stroke="#D4A017" stroke-width="20" stroke-dasharray="76 225" stroke-dashoffset="-225" transform="rotate(-90 60 60)"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#1A1B4B" stroke-width="20" stroke-dasharray="79 222" stroke-dashoffset="0" transform="rotate(-90 60 60)"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#3B5BDB" stroke-width="20" stroke-dasharray="83 218" stroke-dashoffset="-79" transform="rotate(-90 60 60)"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#D4A017" stroke-width="20" stroke-dasharray="116 185" stroke-dashoffset="-162" transform="rotate(-90 60 60)"/>
+              <circle cx="60" cy="60" r="48" fill="none" stroke="#2DC653" stroke-width="20" stroke-dasharray="23 278" stroke-dashoffset="-278" transform="rotate(-90 60 60)"/>
               <text x="60" y="56" text-anchor="middle" font-family="Syne" font-weight="800" font-size="18" fill="#1A1B4B">€65</text>
               <text x="60" y="72" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#7A7A8C">total</text>
             </svg>
             <div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Food & Drinks','€26',40,'var(--navy)')"><div class="legend-dot" style="background:var(--navy);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Food & Drinks</div><div style="font-size:12px;color:var(--muted);">€26 · 40%</div></div></div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Books & Uni','€13',20,'var(--blue)')"><div class="legend-dot" style="background:var(--blue);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Books & Uni</div><div style="font-size:12px;color:var(--muted);">€13 · 20%</div></div></div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Transport','€10',15,'var(--green)')"><div class="legend-dot" style="background:var(--green);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Transport</div><div style="font-size:12px;color:var(--muted);">€10 · 15%</div></div></div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Other','€16',25,'var(--gold)')"><div class="legend-dot" style="background:var(--gold);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Other</div><div style="font-size:12px;color:var(--muted);">€16 · 25%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Food & Drinks','€17',26,'var(--navy)')"><div class="legend-dot" style="background:var(--navy);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Food & Drinks</div><div style="font-size:12px;color:var(--muted);">€17 · 26%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Books & Uni','€18',28,'var(--blue)')"><div class="legend-dot" style="background:var(--blue);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Books & Uni</div><div style="font-size:12px;color:var(--muted);">€18 · 28%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Groceries','€25',38,'var(--gold)')"><div class="legend-dot" style="background:var(--gold);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Groceries</div><div style="font-size:12px;color:var(--muted);">€25 · 38%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Leisure','€5',8,'var(--green)')"><div class="legend-dot" style="background:var(--green);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Leisure</div><div style="font-size:12px;color:var(--muted);">€5 · 8%</div></div></div>
             </div>
           </div>
         </div>
@@ -1696,14 +1696,12 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 
       <div class="sec-hdr" style="margin-top:8px;"><div class="sec-title">All Transactions</div></div>
       <div class="tx-table">
-        <div class="tx-row"><div class="tx-ico" style="background:#fff2cc;">☕</div><div class="tx-inf"><div class="tx-name">Campus Café</div><div class="tx-meta">Today, 09:14 · Discount applied</div></div><div class="tx-right"><div class="tx-amt neg">−€2.55</div><div class="tx-cb">+2 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#e3eeff;">📚</div><div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">Yesterday · 20% student discount</div></div><div class="tx-right"><div class="tx-amt neg">−€18.40</div><div class="tx-cb">+18 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#efffee;">💸</div><div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">20 May · Automatic</div></div><div class="tx-right"><div class="tx-amt pos">+820 Pts</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#f5f4f0;">🍽️</div><div class="tx-inf"><div class="tx-name">Mensa Lunch</div><div class="tx-meta">19 May · Student price</div></div><div class="tx-right"><div class="tx-amt neg">−€3.20</div><div class="tx-cb">+3 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#fff8e8;">🛒</div><div class="tx-inf"><div class="tx-name">REWE</div><div class="tx-meta">17 May · 3% Cashback</div></div><div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+24 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#fdf0ff;">🎬</div><div class="tx-inf"><div class="tx-name">CineStar</div><div class="tx-meta">16 May · Student ticket</div></div><div class="tx-right"><div class="tx-amt neg">−€5.00</div><div class="tx-cb">+5 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#efffee;">🚌</div><div class="tx-inf"><div class="tx-name">MVV Semester Ticket</div><div class="tx-meta">1 May · Semester renewal</div></div><div class="tx-right"><div class="tx-amt neg">−€189.00</div><div class="tx-cb">+189 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#efffee;">💸</div><div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">1 May · Monthly payout</div></div><div class="tx-right"><div class="tx-amt pos">+2,600 Pts</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fff2cc;">☕</div><div class="tx-inf"><div class="tx-name">Campus Café</div><div class="tx-meta">Today, 09:14 · Discount applied</div></div><div class="tx-right"><div class="tx-amt neg">−€3.00</div><div class="tx-cb">+3 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#f5f4f0;">🍽️</div><div class="tx-inf"><div class="tx-name">Mensa Lunch</div><div class="tx-meta">21 Jun · Student price</div></div><div class="tx-right"><div class="tx-amt neg">−€4.00</div><div class="tx-cb">+4 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#e3eeff;">📚</div><div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">17 Jun · 20% student discount</div></div><div class="tx-right"><div class="tx-amt neg">−€18.00</div><div class="tx-cb">+18 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fff8e8;">🛒</div><div class="tx-inf"><div class="tx-name">REWE</div><div class="tx-meta">14 Jun · 3% Cashback</div></div><div class="tx-right"><div class="tx-amt neg">−€25.00</div><div class="tx-cb">+25 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fff0e8;">🌮</div><div class="tx-inf"><div class="tx-name">Subway</div><div class="tx-meta">9 Jun · Student menu</div></div><div class="tx-right"><div class="tx-amt neg">−€10.00</div><div class="tx-cb">+10 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fdf0ff;">🎬</div><div class="tx-inf"><div class="tx-name">CineStar</div><div class="tx-meta">4 Jun · Student ticket</div></div><div class="tx-right"><div class="tx-amt neg">−€5.00</div><div class="tx-cb">+5 Points</div></div></div>
       </div>
     </div>
 
@@ -2188,6 +2186,7 @@ function openSettings() {
 }
 
 function openNotifSettings() {
+  document.getElementById('modalOverlay').classList.add('open');
   document.getElementById('modalTitle').textContent = 'Notifications';
   document.getElementById('modalBody').innerHTML = `
     <div style="margin-top:8px;">
@@ -2204,6 +2203,7 @@ function openNotifSettings() {
 }
 
 function openSecuritySettings() {
+  document.getElementById('modalOverlay').classList.add('open');
   document.getElementById('modalTitle').textContent = 'Security & PIN';
   document.getElementById('modalBody').innerHTML = `
     <div style="margin-top:8px;">
@@ -2228,6 +2228,7 @@ function openSecuritySettings() {
 }
 
 function openChangePIN() {
+  document.getElementById('modalOverlay').classList.add('open');
   window._cp = [];
   document.getElementById('modalTitle').textContent = 'Change PIN';
   const keys = [1,2,3,4,5,6,7,8,9,'',0,'⌫'];
@@ -2280,6 +2281,7 @@ function cpDone() {
 }
 
 function openPrivacySettings() {
+  document.getElementById('modalOverlay').classList.add('open');
   document.getElementById('modalTitle').textContent = 'Privacy & Data';
   document.getElementById('modalBody').innerHTML = `
     <div style="margin-top:8px;">
@@ -2743,10 +2745,10 @@ function redeemOffer(name) {
     <div class="success-screen">
       <div class="success-icon">✅</div>
       <div class="success-title">Offer activated!</div>
-      <div class="success-sub">${name} – ${d.pct||''}<br>This offer will be applied automatically on your next purchase.</div>
-      <div style="background:var(--cream2);border-radius:14px;padding:16px;margin:24px 0;text-align:left;">
-        <div style="font-size:12px;color:var(--muted);margin-bottom:4px;">Your activation code</div>
-        <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--navy);letter-spacing:3px;">UC-${Math.random().toString(36).slice(2,8).toUpperCase()}</div>
+      <div class="success-sub">${name} – ${d.pct||''}<br>No code needed — this discount is applied automatically when you pay with your UniCash Wallet.</div>
+      <div style="display:flex;align-items:center;gap:12px;background:rgba(45,198,83,0.08);border:1px solid rgba(45,198,83,0.2);border-radius:14px;padding:16px 18px;margin:24px 0;text-align:left;">
+        <div style="font-size:22px;">⚡</div>
+        <div style="font-size:13px;color:var(--navy);line-height:1.5;">Just pay as usual at <strong>${d.partner||name}</strong> — your student discount and points are added automatically.</div>
       </div>
       <button class="modal-cta" onclick="closeModal()">Done</button>
     </div>`;
@@ -2771,7 +2773,7 @@ function showPremiumUpgrade() {
       </div>`).join('')}
     </div>
     <button class="modal-cta gold" onclick="confirmPremium()"><i class="ti ti-star-filled"></i> Activate Premium · only €3.99/month</button>
-    <button onclick="closeModal()" style="width:100%;background:none;border:none;padding:12px;color:var(--muted);cursor:pointer;font-size:14px;margin-top:8px;">Vielleicht später</button>`);
+    <button onclick="closeModal()" style="width:100%;background:none;border:none;padding:12px;color:var(--muted);cursor:pointer;font-size:14px;margin-top:8px;">Maybe later</button>`);
 }
 
 let isPremiumUser = false;
@@ -2780,14 +2782,12 @@ let isPremiumUser = false;
 //  TRANSACTION DETAIL MODAL
 // ══════════════════════════════════════════
 const txData = [
-  { emoji:'☕', bg:'#fff2cc', name:'Campus Café',        meta:'Today, 09:14',      cat:'Food & Drinks',  amt:'-€2.55',   pts:'+2 Points',   status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00481' },
-  { emoji:'📚', bg:'#e3eeff', name:'UniShop Books',      meta:'Yesterday, 14:22',  cat:'Books & Uni',    amt:'-€18.40',  pts:'+18 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00479' },
-  { emoji:'💸', bg:'#efffee', name:'Points Credit',      meta:'20 May, 00:01',     cat:'Cashback',       amt:'+820 Pts', pts:'',            status:'Completed', method:'Automatic',      ref:'UC-2026-00460' },
-  { emoji:'🍽️', bg:'#f5f4f0', name:'Mensa Lunch',       meta:'19 May, 12:35',     cat:'Food & Drinks',  amt:'-€3.20',   pts:'+3 Points',   status:'Completed', method:'UniCash QR',     ref:'UC-2026-00455' },
-  { emoji:'🛒', bg:'#fff8e8', name:'REWE',               meta:'17 May, 17:44',     cat:'Groceries',      amt:'-€24.80',  pts:'+24 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00448' },
-  { emoji:'🎬', bg:'#fdf0ff', name:'CineStar',           meta:'16 May, 19:00',     cat:'Leisure',        amt:'-€5.00',   pts:'+5 Points',   status:'Completed', method:'UniCash Ticket', ref:'UC-2026-00441' },
-  { emoji:'🚌', bg:'#efffee', name:'MVV Semester Ticket',meta:'1 May, 08:00',      cat:'Transport',      amt:'-€189.00', pts:'+189 Points', status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00400' },
-  { emoji:'💸', bg:'#efffee', name:'Points Credit',      meta:'1 May, 00:01',      cat:'Cashback',       amt:'+2,600 Pts',pts:'',           status:'Completed', method:'Automatic',      ref:'UC-2026-00399' },
+  { emoji:'☕', bg:'#fff2cc', name:'Campus Café',        meta:'Today, 09:14',      cat:'Food & Drinks',  amt:'-€3.00',   pts:'+3 Points',   status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00481' },
+  { emoji:'🍽️', bg:'#f5f4f0', name:'Mensa Lunch',       meta:'21 Jun, 12:35',     cat:'Food & Drinks',  amt:'-€4.00',   pts:'+4 Points',   status:'Completed', method:'UniCash QR',     ref:'UC-2026-00474' },
+  { emoji:'📚', bg:'#e3eeff', name:'UniShop Books',      meta:'17 Jun, 14:22',     cat:'Books & Uni',    amt:'-€18.00',  pts:'+18 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00468' },
+  { emoji:'🛒', bg:'#fff8e8', name:'REWE',               meta:'14 Jun, 17:44',     cat:'Groceries',      amt:'-€25.00',  pts:'+25 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00461' },
+  { emoji:'🌮', bg:'#fff0e8', name:'Subway',             meta:'9 Jun, 13:10',      cat:'Food & Drinks',  amt:'-€10.00',  pts:'+10 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00452' },
+  { emoji:'🎬', bg:'#fdf0ff', name:'CineStar',           meta:'4 Jun, 19:00',      cat:'Leisure',        amt:'-€5.00',   pts:'+5 Points',   status:'Completed', method:'UniCash Ticket', ref:'UC-2026-00441' },
 ];
 
 function openTx(idx) {
@@ -3265,10 +3265,10 @@ function confirmWalletAdd(wallet) {
 // ══════════════════════════════════════════
 function openCategoryDetail(cat, amount, pct, color) {
   const txMap = {
-    'Food & Drinks': [['☕','Campus Café','Today','−€2.55','+2 Pts'],['🍽️','Mensa','19 May','−€3.20','+3 Pts'],['🌮','Subway','15 May','−€8.90','+8 Pts'],['☕','Campus Café','14 May','−€3.10','+3 Pts'],['🥐','Bakery Wimmer','11 May','−€2.45','+2 Pts'],['🧋','Coffee To-Go','8 May','−€5.80','+5 Pts']],
-    'Books & Uni': [['📚','UniShop Books','Yesterday','−€9.00','+9 Pts'],['🖊️','Stationery','5 May','−€4.00','+4 Pts']],
-    'Transport': [['🚌','MVV Day Pass','8 May','−€6.00','+6 Pts'],['🚌','MVV Single','3 May','−€4.00','+4 Pts']],
-    'Other': [['🛒','REWE','17 May','−€11.20','+11 Pts'],['🧴','dm Drugstore','10 May','−€4.80','+4 Pts']]
+    'Food & Drinks': [['☕','Campus Café','Today','−€3.00','+3 Pts'],['🍽️','Mensa Lunch','21 Jun','−€4.00','+4 Pts'],['🌮','Subway','9 Jun','−€10.00','+10 Pts']],
+    'Books & Uni': [['📚','UniShop Books','17 Jun','−€18.00','+18 Pts']],
+    'Groceries': [['🛒','REWE','14 Jun','−€25.00','+25 Pts']],
+    'Leisure': [['🎬','CineStar','4 Jun','−€5.00','+5 Pts']]
   };
   const rows = txMap[cat] || [];
   openModal(cat, `
