@@ -430,6 +430,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
   display:flex;align-items:center;gap:16px;padding:18px 0;
   border-bottom:1px solid rgba(0,0,0,0.05);cursor:pointer;transition:opacity 0.15s;
 }
+.setting-item > div:nth-child(2){flex:1;min-width:0;}
 .setting-item:last-child{border:none;}
 .setting-item:hover{opacity:0.75;}
 .setting-ico{
@@ -438,7 +439,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 }
 .setting-label{font-size:15px;font-weight:500;color:var(--navy);}
 .setting-sub{font-size:13px;color:var(--muted);}
-.setting-arrow{margin-left:auto;color:var(--muted);font-size:18px;}
+.setting-arrow{margin-left:auto;color:var(--muted);font-size:18px;flex-shrink:0;align-self:center;}
 
 /* Stats page charts */
 .chart-bar-wrap{display:flex;align-items:flex-end;gap:8px;height:120px;margin-top:16px;position:relative;}
@@ -856,7 +857,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="notif-item">
               <div class="notif-ico" style="background:#efffee;">💸</div>
               <div style="flex:1;">
-                <div class="notif-text"><strong>Cashback credited!</strong><br/>€8.20 von deinem REWE-Einkauf wurden gutgeschrieben.</div>
+                <div class="notif-text"><strong>Cashback credited!</strong><br/>€8.20 from your REWE purchase has been credited.</div>
                 <div class="notif-time">2 hours ago</div>
               </div>
               <div class="notif-dot"></div>
@@ -895,7 +896,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 
       <!-- Ad banner -->
       <div class="ad-banner" id="homeBanner">        <div>
-          <div class="ad-label">Werbeanzeige</div>
+          <div class="ad-label">ADVERTISEMENT</div>
           <div class="ad-title">Baader Bank – Your Student Account</div>
           <div class="ad-sub">€0 account fee, up to 3% interest · Exclusively for students</div>
         </div>
@@ -906,13 +907,31 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
       <div class="balance-hero">
         <div class="bh-left">
           <div class="bh-label">Your Points Balance</div>
-          <div class="bh-amount">2.840 Pts</div>
+          <div class="bh-amount">2,840 Pts</div>
           <div class="bh-sub">= <strong style="color:rgba(245,240,232,0.85);">€28.40 redeemable</strong> · 1 Pt per €1 · 100 Pts = €1</div>
-          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+49 Points today</div>
+          <div class="bh-pill"><i class="ti ti-trending-up" style="font-size:16px;"></i>+2 Points today</div>
         </div>
         <div class="bh-right">
-          <button class="bh-action" onclick="openPayNow()"><i class="ti ti-qrcode"></i> Pay Now</button>
+          <button class="bh-action" onclick="openPayNow()"><i class="ti ti-qrcode"></i> Show QR Code</button>
           <button class="bh-action payout" onclick="openPayout()"><i class="ti ti-cash"></i> Redeem Points</button>
+        </div>
+      </div>
+
+      <!-- Premium double points highlight (shown when premium active) -->
+      <div id="homePremiumCashback" style="display:none;background:linear-gradient(135deg,#1a1b4b,#2d2f6b);border-radius:18px;padding:20px 24px;margin-bottom:20px;align-items:center;gap:18px;position:relative;overflow:hidden;">
+        <div style="position:absolute;right:-30px;top:-30px;width:140px;height:140px;border-radius:50%;background:rgba(212,160,23,0.12);"></div>
+        <div style="font-size:34px;z-index:1;">💰</div>
+        <div style="z-index:1;flex:1;">
+          <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(212,160,23,0.2);border-radius:20px;padding:3px 12px;margin-bottom:6px;">
+            <i class="ti ti-star-filled" style="color:var(--gold);font-size:11px;"></i>
+            <span style="font-size:10px;color:var(--gold);font-weight:700;letter-spacing:1px;">PREMIUM ACTIVE</span>
+          </div>
+          <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:800;color:var(--cream);">You now earn 2× points on every purchase</div>
+          <div style="font-size:13px;color:rgba(245,240,232,0.6);margin-top:2px;">Double points with all UniCash partners — twice the value on every euro.</div>
+        </div>
+        <div style="text-align:right;z-index:1;">
+          <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--gold);">2×</div>
+          <div style="font-size:11px;color:rgba(245,240,232,0.5);">Points</div>
         </div>
       </div>
 
@@ -921,7 +940,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="pts-eq">🎁 Redeem Points:</div>
         <div class="voucher-chips">
           <div class="voucher-chip" onclick="openVoucher('Campus Café','500','€5')"><i class="ti ti-coffee" style="font-size:12px;"></i> €5 Campus Café (500 Pts)</div>
-          <div class="voucher-chip" onclick="openVoucher('REWE','1.000','€10')"><i class="ti ti-shopping-cart" style="font-size:12px;"></i> €10 REWE (1,000 Pts)</div>
+          <div class="voucher-chip" onclick="openVoucher('REWE','1000','€10')"><i class="ti ti-shopping-cart" style="font-size:12px;"></i> €10 REWE (1,000 Pts)</div>
           <div class="voucher-chip" onclick="openVoucher('Spotify','300','1 Month')"><i class="ti ti-music" style="font-size:12px;"></i> Spotify (300 Pts)</div>
         </div>
       </div>
@@ -933,10 +952,10 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="stat-value">€312</div>
           <div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> vs. last month</div>
         </div>
-        <div class="stat-card">
+        <div class="stat-card" id="homeCashbackCard">
           <div class="stat-label">Cashback Earned</div>
           <div class="stat-value">€34.20</div>
-          <div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> +18% vs. last month</div>
+          <div class="stat-change up" id="homeCashbackChange"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> +18% vs. last month</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Active Offers</div>
@@ -946,7 +965,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="stat-card">
           <div class="stat-label">Saved (2026)</div>
           <div class="stat-value">€189</div>
-          <div class="stat-change up"><i class="ti ti-award" style="font-size:12px;"></i> Gold Student</div>
+          <div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> vs. last year</div>
         </div>
       </div>
 
@@ -961,7 +980,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(0)">
               <div class="tx-ico" style="background:#fff2cc;">☕</div>
               <div class="tx-inf"><div class="tx-name">Campus Café</div><div class="tx-meta">Today, 09:14 · Discount applied</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€2.55</div><div class="tx-cb">+3 Points</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€2.55</div><div class="tx-cb">+2 Points</div></div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(1)">
               <div class="tx-ico" style="background:#e3eeff;">📚</div>
@@ -981,7 +1000,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(4)">
               <div class="tx-ico" style="background:#fff8e8;">🛒</div>
               <div class="tx-inf"><div class="tx-name">REWE Partner Offer</div><div class="tx-meta">17 May · 8% Cashback</div></div>
-              <div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+25 Points</div></div>
+              <div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+24 Points</div></div>
             </div>
           </div>
         </div>
@@ -1005,7 +1024,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openOffer('MVV Transport')">
               <div class="tx-ico" style="background:#efffee;">🚌</div>
-              <div class="tx-inf"><div class="tx-name">MVV Transport</div><div class="tx-meta">Semesterticket</div></div>
+              <div class="tx-inf"><div class="tx-name">MVV Transport</div><div class="tx-meta">Semester ticket</div></div>
               <div class="pill green">50% OFF</div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openOffer('REWE')">
@@ -1144,7 +1163,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <!-- ── MAP PINS (data-cat for filter) ── -->
 
             <!-- Mensa OTH (campus/food) -->
-            <div class="map-pin" data-cat="campus food" style="top:165px;left:190px;" onclick="showMapPin('Mensa OTH','🍽️','Seybothstr. · Studentenmenü ab €1,20','campus',0,'food')">
+            <div class="map-pin" data-cat="campus food" style="top:165px;left:190px;" onclick="showMapPin('Mensa OTH','🍽️','Seybothstr. · Student menu ab €1.20','campus',0,'food')">
               <div class="map-pin-bubble">🍽️ Mensa OTH · €1.20</div>
               <div class="map-pin-tail"></div><div class="map-pin-dot"></div>
             </div>
@@ -1204,13 +1223,13 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             </div>
 
             <!-- CineStar (freizeit) -->
-            <div class="map-pin" data-cat="freizeit" style="top:480px;left:870px;" onclick="showMapPin('CineStar Regensburg','🎬','Richtung Innenstadt · €5 Studententicket','local',900,'freizeit')">
+            <div class="map-pin" data-cat="freizeit" style="top:480px;left:870px;" onclick="showMapPin('CineStar Regensburg','🎬','Towards city centre · €5 Studententicket','local',900,'freizeit')">
               <div class="map-pin-bubble">🎬 CineStar · €5</div>
               <div class="map-pin-tail"></div><div class="map-pin-dot"></div>
             </div>
 
             <!-- Lilien-Apotheke (shopping) -->
-            <div class="map-pin" data-cat="shopping" style="top:140px;left:780px;" onclick="showMapPin('Lilien-Apotheke','💊','Universitätsnähe · 8% OFF','shopping',520,'shopping')">
+            <div class="map-pin" data-cat="shopping" style="top:140px;left:780px;" onclick="showMapPin('Lilien-Apotheke','💊','Near university · 8% OFF','shopping',520,'shopping')">
               <div class="map-pin-bubble">💊 Pharmacy · 8%</div>
               <div class="map-pin-tail"></div><div class="map-pin-dot"></div>
             </div>
@@ -1308,7 +1327,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
       <!-- Ad banner in offers -->
       <div class="ad-banner" id="offersBanner" style="margin-bottom:20px;">
         <div>
-          <div class="ad-label">Gesponsert</div>
+          <div class="ad-label">SPONSORED</div>
           <div class="ad-title">N26 Student – €0 forever</div>
           <div class="ad-sub">Modern banking without fees · Apple Pay & Google Pay included</div>
         </div>
@@ -1385,7 +1404,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="offer-logo" style="background:#fff0f8;">👗</div>
           <div class="offer-store">Zalando</div>
           <div class="offer-pct">15% OFF</div>
-          <div class="offer-note">Fashion & shoes · Online-Shop</div>
+          <div class="offer-note">Fashion & shoes · Online</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
         <div class="offer-card" data-cat="shopping">
@@ -1412,7 +1431,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="offer-card" data-cat="shopping">
           <div class="offer-logo" style="background:#e8f4ff;">💻</div>
           <div class="offer-store">Amazon Student</div>
-          <div class="offer-pct">Prime gratis</div>
+          <div class="offer-pct">Prime free</div>
           <div class="offer-note">6 months free for students</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
@@ -1420,7 +1439,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="offer-logo" style="background:#f0fff4;">🖥️</div>
           <div class="offer-store">Notebooksbilliger</div>
           <div class="offer-pct">5% OFF</div>
-          <div class="offer-note">Laptops & Elektronik</div>
+          <div class="offer-note">Laptops & electronics</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
 
@@ -1436,21 +1455,21 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="offer-logo" style="background:#fff8f0;">🍔</div>
           <div class="offer-store">McDonald's</div>
           <div class="offer-pct">20% OFF</div>
-          <div class="offer-note">App-Bestellungen · Student Deal</div>
+          <div class="offer-note">App orders · Student deal</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
         <div class="offer-card" data-cat="food">
           <div class="offer-logo" style="background:#fff4e6;">🌮</div>
           <div class="offer-store">Subway</div>
           <div class="offer-pct">15% OFF</div>
-          <div class="offer-note">Alle Subs & Salate</div>
+          <div class="offer-note">All subs & salads</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
         <div class="offer-card" data-cat="food">
           <div class="offer-logo" style="background:#e8fff0;">🥗</div>
           <div class="offer-store">HelloFresh</div>
           <div class="offer-pct">40% OFF</div>
-          <div class="offer-note">Erste Box + 3. Box gratis</div>
+          <div class="offer-note">First box + 3rd box free</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
         <div class="offer-card" data-cat="food">
@@ -1464,14 +1483,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="offer-logo" style="background:#fff0ea;">🍗</div>
           <div class="offer-store">KFC</div>
           <div class="offer-pct">10% OFF</div>
-          <div class="offer-note">App-Bestellungen</div>
+          <div class="offer-note">App orders</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
         <div class="offer-card" data-cat="food">
           <div class="offer-logo" style="background:#f0f8ff;">🌯</div>
           <div class="offer-store">Döner Kebab</div>
           <div class="offer-pct">€1 OFF</div>
-          <div class="offer-note">Lokale Partner · Campus-nah</div>
+          <div class="offer-note">Local partners · Near campus</div>
           <div class="offer-auto"><i class="ti ti-check" style="font-size:11px;"></i> Auto-applied</div>
         </div>
 
@@ -1546,7 +1565,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
       <div style="margin-top:24px;background:linear-gradient(135deg,#1a1b4b,#2d2f6b);border-radius:20px;padding:28px 32px;display:flex;align-items:center;justify-content:space-between;">
         <div>
           <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:var(--cream);margin-bottom:6px;">⭐ UniCash Premium</div>
-          <div style="font-size:14px;color:rgba(245,240,232,0.6);margin-bottom:0;">Unlock 50+ exclusive offers · Only €3.99/Monat</div>
+          <div style="font-size:14px;color:rgba(245,240,232,0.6);margin-bottom:0;">Unlock 50+ exclusive offers · Only €3.99/month</div>
         </div>
         <button onclick="showTab('profile',document.querySelectorAll('.nav-item')[5])" style="background:linear-gradient(135deg,var(--gold),#f0c040);color:var(--navy);border:none;border-radius:12px;padding:14px 24px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;cursor:pointer;white-space:nowrap;">Upgrade now →</button>
       </div>
@@ -1617,7 +1636,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
                 <div style="font-size:13px;color:var(--muted);">Identity confirmed via SSO</div>
               </div>
             </div>
-            <div style="font-size:13px;color:var(--muted);line-height:1.6;">Your student status is updated automatically each semester via das offizielle System deiner Uni aktualisiert.</div>
+            <div style="font-size:13px;color:var(--muted);line-height:1.6;">Your student status is updated automatically each semester via your university's official system.</div>
           </div>
         </div>
       </div>
@@ -1677,14 +1696,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 
       <div class="sec-hdr" style="margin-top:8px;"><div class="sec-title">All Transactions</div></div>
       <div class="tx-table">
-        <div class="tx-row"><div class="tx-ico" style="background:#fff2cc;">☕</div><div class="tx-inf"><div class="tx-name">Campus Café</div><div class="tx-meta">Today, 09:14 · Discount applied</div></div><div class="tx-right"><div class="tx-amt neg">−€2.55</div><div class="tx-cb">+3 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fff2cc;">☕</div><div class="tx-inf"><div class="tx-name">Campus Café</div><div class="tx-meta">Today, 09:14 · Discount applied</div></div><div class="tx-right"><div class="tx-amt neg">−€2.55</div><div class="tx-cb">+2 Points</div></div></div>
         <div class="tx-row"><div class="tx-ico" style="background:#e3eeff;">📚</div><div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">Yesterday · 20% student discount</div></div><div class="tx-right"><div class="tx-amt neg">−€18.40</div></div></div>
         <div class="tx-row"><div class="tx-ico" style="background:#efffee;">💸</div><div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">20 May · Automatic</div></div><div class="tx-right"><div class="tx-amt pos">+820 Pts</div></div></div>
         <div class="tx-row"><div class="tx-ico" style="background:#f5f4f0;">🍽️</div><div class="tx-inf"><div class="tx-name">Mensa Lunch</div><div class="tx-meta">19 May · Student price</div></div><div class="tx-right"><div class="tx-amt neg">−€3.20</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#fff8e8;">🛒</div><div class="tx-inf"><div class="tx-name">REWE</div><div class="tx-meta">17 May · 8% Cashback</div></div><div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+25 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fff8e8;">🛒</div><div class="tx-inf"><div class="tx-name">REWE</div><div class="tx-meta">17 May · 8% Cashback</div></div><div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+24 Points</div></div></div>
         <div class="tx-row"><div class="tx-ico" style="background:#fdf0ff;">🎬</div><div class="tx-inf"><div class="tx-name">CineStar</div><div class="tx-meta">16 May · Student ticket</div></div><div class="tx-right"><div class="tx-amt neg">−€5.00</div></div></div>
         <div class="tx-row"><div class="tx-ico" style="background:#efffee;">🚌</div><div class="tx-inf"><div class="tx-name">MVV Semester Ticket</div><div class="tx-meta">1 May · Semester renewal</div></div><div class="tx-right"><div class="tx-amt neg">−€189.00</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#efffee;">💸</div><div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">1 May · Monthly payout</div></div><div class="tx-right"><div class="tx-amt pos">+2.600 Pts</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#efffee;">💸</div><div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">1 May · Monthly payout</div></div><div class="tx-right"><div class="tx-amt pos">+2,600 Pts</div></div></div>
       </div>
     </div>
 
@@ -1697,9 +1716,9 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="profile-sub">max.mustermann@stud.uni-regensburg.de</div>
           <div class="profile-tag"><i class="ti ti-award" style="font-size:14px;"></i> Gold Student · Member since March 2026</div>
         </div>
-        <div style="margin-left:auto;text-align:right;">
-          <div style="font-family:'Syne',sans-serif;font-size:36px;font-weight:800;color:var(--cream);">2.840</div>
-          <div style="font-size:13px;color:rgba(245,240,232,0.5);">Points = €28.40</div>
+        <div style="margin-left:auto;text-align:right;display:flex;flex-direction:column;align-items:flex-end;">
+          <div style="font-family:'DM Sans',sans-serif;font-size:42px;font-weight:700;color:var(--cream);letter-spacing:-1px;line-height:1;">2,840</div>
+          <div style="font-size:13px;color:rgba(245,240,232,0.5);margin-top:6px;">Points · = €28.40</div>
         </div>
       </div>
 
@@ -1720,17 +1739,17 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div style="font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy);">💰 Points Account</div>
             <div style="font-size:13px;color:var(--muted);margin-top:4px;">1 point per €1 spent · 100 points = €1.00</div>
           </div>
-          <div style="text-align:right;">
-            <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--navy);">2.840</div>
-            <div style="font-size:12px;color:var(--green);font-weight:600;">= €28.40 redeemable</div>
+          <div style="text-align:right;display:flex;flex-direction:column;align-items:flex-end;">
+            <div style="font-family:'DM Sans',sans-serif;font-size:34px;font-weight:700;color:var(--navy);letter-spacing:-1px;line-height:1;">2,840</div>
+            <div style="font-size:12px;color:var(--green);font-weight:600;margin-top:6px;">= €28.40 redeemable</div>
           </div>
         </div>
         <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Choose a payout option or redeem vouchers:</div>
         <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:14px;">
           <button style="background:var(--cream2);border:none;border-radius:12px;padding:14px 10px;cursor:pointer;text-align:center;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">
             <div style="font-size:20px;margin-bottom:6px;">💶</div>
-            <div style="font-size:12px;font-weight:600;color:var(--navy);">€28,40 Bar</div>
-            <div style="font-size:11px;color:var(--muted);">2.840 Pts → Konto</div>
+            <div style="font-size:12px;font-weight:600;color:var(--navy);">€28.40 Cash</div>
+            <div style="font-size:11px;color:var(--muted);">2,840 Pts → Account</div>
           </button>
           <button style="background:var(--cream2);border:none;border-radius:12px;padding:14px 10px;cursor:pointer;text-align:center;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">
             <div style="font-size:20px;margin-bottom:6px;">☕</div>
@@ -1744,7 +1763,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           </button>
         </div>
         <button style="width:100%;background:var(--navy);color:var(--cream);border:none;border-radius:12px;padding:13px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;">
-          <i class="ti ti-cash" style="font-size:16px;margin-right:8px;"></i>Alle 2.840 Redeem Points (= €28,40)
+          <i class="ti ti-cash" style="font-size:16px;margin-right:8px;"></i>Redeem all 2,840 points (= €28.40)
         </button>
       </div>
 
@@ -1762,18 +1781,9 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
 
         <div style="display:flex;flex-direction:column;gap:16px;">
           <div class="sec-hdr"><div class="sec-title">Rewards</div></div>
-          <div class="card" style="background:var(--navy);border:none;">
-            <div style="font-size:13px;color:rgba(245,240,232,0.5);margin-bottom:4px;">Your Level</div>
-            <div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--cream);margin-bottom:12px;">🏆 Gold Student</div>
-            <div style="background:rgba(255,255,255,0.08);border-radius:10px;height:8px;margin-bottom:8px;overflow:hidden;">
-              <div style="width:65%;height:100%;background:var(--gold);border-radius:10px;"></div>
-            </div>
-            <div style="font-size:13px;color:rgba(245,240,232,0.5);">65% zu Platinum · noch €108 Cashback nötig</div>
-          </div>
-
           <div class="card">
             <div class="sec-hdr" style="margin-bottom:12px;"><div class="sec-title" style="font-size:16px;">Invite Friends</div></div>
-            <div style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Lade Kommilitonen ein und erhalte €5 cashback for every friend who joins.</div>
+            <div style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:14px;">Invite fellow students and get €5 cashback for every friend who joins.</div>
             <div style="display:flex;gap:8px;">
               <div style="flex:1;background:var(--cream2);border-radius:10px;padding:12px;font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--navy);letter-spacing:2px;">LASNK-REF</div>
               <button style="background:var(--navy);color:var(--cream);border:none;border-radius:10px;padding:12px 16px;cursor:pointer;font-size:18px;"><i class="ti ti-copy"></i></button>
@@ -1799,7 +1809,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div style="position:relative;z-index:1;">
           <div style="display:inline-flex;align-items:center;gap:6px;background:rgba(212,160,23,0.2);border:1px solid rgba(212,160,23,0.4);border-radius:20px;padding:6px 16px;margin-bottom:16px;">
             <i class="ti ti-star-filled" style="color:var(--gold);font-size:13px;"></i>
-            <span style="font-size:12px;color:var(--gold);font-weight:600;letter-spacing:1px;">PREMIUM AKTIV</span>
+            <span style="font-size:12px;color:var(--gold);font-weight:600;letter-spacing:1px;">PREMIUM ACTIVE</span>
           </div>
           <div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--cream);margin-bottom:8px;">Your Premium Deals</div>
           <div style="font-size:15px;color:rgba(245,240,232,0.6);">Exclusive offers for UniCash Premium members · Ad-free</div>
@@ -1812,21 +1822,21 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="stat-card" style="border-color:rgba(212,160,23,0.2);background:rgba(212,160,23,0.04);">
           <div class="stat-label">Premium Deals</div>
           <div class="stat-value" style="color:var(--gold);">12</div>
-          <div class="stat-change" style="color:var(--gold);">exklusiv für dich</div>
+          <div class="stat-change" style="color:var(--gold);">exclusive for you</div>
         </div>
         <div class="stat-card">
           <div class="stat-label">Double Points</div>
           <div class="stat-value">2×</div>
-          <div class="stat-change up">bei Premium Partnern</div>
+          <div class="stat-change up">at Premium partners</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Gespart (Premium)</div>
+          <div class="stat-label">Saved (Premium)</div>
           <div class="stat-value">€0</div>
-          <div class="stat-change" style="color:var(--blue);">startet jetzt</div>
+          <div class="stat-change" style="color:var(--blue);">starts now</div>
         </div>
         <div class="stat-card">
-          <div class="stat-label">Abo</div>
-          <div class="stat-value" style="font-size:18px;">€3,99</div>
+          <div class="stat-label">Subscription</div>
+          <div class="stat-value" style="font-size:18px;">€3.99</div>
           <div class="stat-change" style="color:var(--muted);">per month</div>
         </div>
       </div>
@@ -1901,7 +1911,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
           <div class="offer-logo" style="background:#fff8e8;">🎮</div>
           <div class="offer-store">Xbox Game Pass</div>
           <div class="offer-pct">40% OFF</div>
-          <div class="offer-note">200+ games inklusive</div>
+          <div class="offer-note">200+ games included</div>
           <div class="offer-auto" style="background:rgba(212,160,23,0.1);color:var(--gold);"><i class="ti ti-star-filled" style="font-size:11px;"></i> 2× Points</div>
         </div>
         <div class="offer-card" onclick="openOffer('Apple Music')" style="cursor:pointer;">
@@ -1951,18 +1961,18 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
   transition:transform 0.35s cubic-bezier(.4,0,.2,1),opacity 0.35s;
   pointer-events:none;
 ">
-  <div style="background:linear-gradient(135deg,#1a1b4b,#2d2f6b);padding:18px 20px;display:flex;align-items:center;gap:12px;position:relative;">
-    <div style="font-size:28px;">🏦</div>
+  <div style="background:linear-gradient(135deg,#1a1b4b,#2d2f6b);padding:18px 20px;display:flex;align-items:center;gap:12px;position:relative;" id="adPopupInner">
+    <div style="font-size:28px;" id="adPopupIco">🏦</div>
     <div>
-      <div style="font-size:10px;color:rgba(245,240,232,0.4);text-transform:uppercase;letter-spacing:2px;">Gesponsert</div>
-      <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--cream);">Baader Bank for Students</div>
+      <div style="font-size:10px;color:rgba(245,240,232,0.4);text-transform:uppercase;letter-spacing:2px;">SPONSORED</div>
+      <div style="font-family:'Syne',sans-serif;font-size:15px;font-weight:700;color:var(--cream);" id="adPopupTitle">Baader Bank for Students</div>
     </div>
-    <button onclick="closeAdPopup()" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--cream);font-size:14px;transition:background 0.15s;" onmouseover="this.style.background='rgba(255,255,255,0.25)'" onmouseout="this.style.background='rgba(255,255,255,0.15)'">✕</button>
+    <button onclick="closeAdPopup()" style="position:absolute;top:10px;right:10px;background:rgba(255,255,255,0.15);border:none;border-radius:50%;width:28px;height:28px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--cream);font-size:14px;">✕</button>
   </div>
-  <div style="padding:16px 20px;">
+  <div style="padding:16px 20px;" id="adPopupBody">
     <div style="font-size:14px;color:var(--navy);margin-bottom:12px;line-height:1.5;"><strong>€0 account fee</strong> + up to <strong>3% interest</strong> on your balance.<br><span style="color:var(--muted);font-size:13px;">Exclusively for UniCash users · 2-minute sign-up</span></div>
     <div style="display:flex;gap:8px;">
-      <button style="flex:1;background:var(--navy);color:var(--cream);border:none;border-radius:10px;padding:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">Discover Now</button>
+      <button onclick="openAdDetail('Baader Bank','Zero account fees and up to 3% interest on your balance. Sign up in under 2 minutes — exclusively for UniCash users.','Open Account')" style="flex:1;background:var(--navy);color:var(--cream);border:none;border-radius:10px;padding:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:'DM Sans',sans-serif;">Discover Now</button>
       <button onclick="closeAdPopup()" style="background:var(--cream2);border:none;border-radius:10px;padding:10px 14px;font-size:13px;color:var(--muted);cursor:pointer;font-family:'DM Sans',sans-serif;">No thanks</button>
     </div>
   </div>
@@ -2069,11 +2079,6 @@ document.addEventListener('click', e => {
 });
 
 // Map filter
-function setMapFilter(btn) {
-  document.querySelectorAll('.map-filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-}
-
 // Offer category filter
 function setOfferFilter(btn, cat) {
   document.querySelectorAll('.offer-filter-btn').forEach(b => b.classList.remove('active'));
@@ -2109,6 +2114,16 @@ window.addEventListener('load', () => {
     if (name) {
       card.style.cursor = 'pointer';
       card.addEventListener('click', () => openOffer(name));
+      // Online offers: swap "Auto-applied" badge for a "Discover code" badge
+      const d = offerData[name];
+      if (d && d.online && !d.premium) {
+        const badge = card.querySelector('.offer-auto');
+        if (badge) {
+          badge.innerHTML = '<i class="ti ti-world" style="font-size:11px;"></i> Discover code';
+          badge.style.background = 'rgba(59,91,219,0.1)';
+          badge.style.color = 'var(--blue)';
+        }
+      }
     }
   });
 
@@ -2280,8 +2295,28 @@ function openAdDetail(name, desc, cta) {
         <div class="modal-detail-ico"><i class="ti ti-coin"></i></div>
         <div><div class="modal-detail-label">UniCash Bonus</div><div class="modal-detail-val">+500 bonus points when you sign up</div></div>
       </div>
-      <button class="modal-cta" onclick="confirmAdSignup('${name}')">${cta}</button>
+      <button class="modal-cta" onclick="adSignupStep2('${name}')">${cta}</button>
     </div>`);
+}
+function adSignupStep2(name) {
+  document.getElementById('modalTitle').textContent = name + ' · Sign up';
+  document.getElementById('modalBody').innerHTML = `
+    <div style="margin-top:16px;">
+      <div style="font-size:14px;color:var(--muted);line-height:1.6;margin-bottom:20px;">Confirm your details to continue to <strong style="color:var(--navy);">${name}</strong>. Your UniCash student status is verified automatically.</div>
+      ${[['Full Name','Max Mustermann','ti-user'],['Student Email','max.mustermann@stud.uni-regensburg.de','ti-mail'],['University','Universität Regensburg','ti-school']].map(([l,v,i])=>`
+      <div style="margin-bottom:14px;">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">${l}</div>
+        <div style="display:flex;align-items:center;gap:10px;background:var(--cream2);border-radius:12px;padding:12px 16px;">
+          <i class="ti ${i}" style="color:var(--navy);"></i>
+          <span style="font-size:14px;color:var(--navy);">${v}</span>
+        </div>
+      </div>`).join('')}
+      <div style="background:rgba(45,198,83,0.08);border:1px solid rgba(45,198,83,0.2);border-radius:12px;padding:12px 16px;margin:16px 0;display:flex;align-items:center;gap:10px;">
+        <i class="ti ti-gift" style="color:var(--green);font-size:18px;"></i>
+        <span style="font-size:13px;color:var(--navy);">+500 bonus points credited after sign-up</span>
+      </div>
+      <button class="modal-cta" onclick="confirmAdSignup('${name}')">Confirm & continue</button>
+    </div>`;
 }
 function confirmAdSignup(name) {
   document.getElementById('modalBody').innerHTML = `
@@ -2418,11 +2453,11 @@ function closeAdPopup() {
 // ══════════════════════════════════════════
 function showMapPin(name, ico, desc, cat, dist, filterCat) {
   const bgMap = {food:'#fff2cc', shopping:'#fff8e8', campus:'#e3eeff', local:'#fdf0ff', freizeit:'#fdf0ff'};
-  const tagMap = {food:'Essen',shopping:'Shopping',campus:'Campus',local:'Lokal',freizeit:'Freizeit'};
+  const tagMap = {food:'Food',shopping:'Shopping',campus:'Campus',local:'Local',freizeit:'Leisure'};
   document.getElementById('mapInfoIco').textContent = ico;
   document.getElementById('mapInfoIco').style.background = bgMap[filterCat] || '#eee';
   document.getElementById('mapInfoName').textContent = name;
-  document.getElementById('mapInfoDist').textContent = (dist ? dist + ' m entfernt · ' : '') + desc;
+  document.getElementById('mapInfoDist').textContent = (dist ? dist + ' m away · ' : '') + desc;
   document.getElementById('mapInfoTag').textContent = tagMap[filterCat] || cat;
 }
 
@@ -2483,7 +2518,7 @@ function miniKey(v) {
   if (v === 'del') { miniAmount = miniAmount.slice(0,-1); }
   else if (miniAmount.length < 6) { miniAmount += v; }
   const el = document.getElementById('miniAmountDisplay');
-  if (el) el.textContent = miniAmount ? '€' + (parseInt(miniAmount)/100).toFixed(2) : '€0,00';
+  if (el) el.textContent = miniAmount ? '€' + (parseInt(miniAmount)/100).toFixed(2) : '€0.00';
 }
 function resetMiniAmount(){ miniAmount = ''; }
 
@@ -2495,28 +2530,28 @@ const offerData = {
   'UniShop Books':    { emoji:'📚', bg:'#e3eeff', pct:'20% OFF', cat:'Books & stationery', note:'All textbooks, lecture notes and stationery', how:'Applied automatically when paying with UniCash', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'UniShop Regensburg' },
   'Mensa':            { emoji:'🍽️', bg:'#f5f4f0', pct:'€1.20', cat:'Campus canteen', note:'Daily menu at student price, drink included', how:'Show student ID + UniCash QR code', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'Studentenwerk Niederbayern' },
   'MVV Transport':    { emoji:'🚌', bg:'#efffee', pct:'50% OFF', cat:'Transport', note:'Semester ticket for all MVV lines included', how:'Show QR code in the app', pts:'2 Pts per €1 · Bonus', valid:'01 Apr – 30 Sep 2026', partner:'Münchner Verkehrsgesellschaft' },
-  'Adidas':           { emoji:'👟', bg:'#f0f4ff', pct:'20% OFF', cat:'Sport & Fashion · Online', note:'Shoes, sportswear and accessories on adidas.com', how:'Enter code at checkout – automatic via UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'Adidas AG' },
-  'Zalando':          { emoji:'👗', bg:'#fff0f8', pct:'15% OFF', cat:'Fashion · Online', note:'Clothing, shoes & accessories on zalando.com', how:'Automatic via UniCash payment', pts:'1 Pt per €1', valid:'Year-round', partner:'Zalando SE' },
-  'ASOS':             { emoji:'🛍️', bg:'#fff8e8', pct:'10% OFF', cat:'Fashion · Online', note:'International fashion range on asos.com', how:'Automatic via UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'ASOS plc' },
-  'Apple':            { emoji:'🍎', bg:'#f4f4f4', pct:'8% OFF', cat:'Electronics · Edu Store', note:'Mac, iPad, AirPods and accessories at the Apple Education Store', how:'Student status confirmed automatically via UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'Apple Inc.' },
-  'Amazon Student':   { emoji:'💻', bg:'#e8f4ff', pct:'Prime free', cat:'Shopping · Online', note:'6 months Amazon Prime free, then 50% student discount', how:'Activate via UniCash student verification', pts:'1 Pt per €1', valid:'Once per student', partner:'Amazon.com Services' },
-  'Notebooksbilliger':{ emoji:'🖥️', bg:'#f0fff4', pct:'5% OFF', cat:'Electronics · Online', note:'Laptops, PCs, monitors and accessories', how:'Automatic at checkout with UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'notebooksbilliger.de GmbH' },
+  'Adidas':           { emoji:'👟', bg:'#f0f4ff', pct:'20% OFF', cat:'Sport & Fashion · Online', note:'Shoes, sportswear and accessories on adidas.com', how:'Enter code at checkout – automatic via UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'Adidas AG', online:true },
+  'Zalando':          { emoji:'👗', bg:'#fff0f8', pct:'15% OFF', cat:'Fashion · Online', note:'Clothing, shoes & accessories on zalando.com', how:'Automatic via UniCash payment', pts:'1 Pt per €1', valid:'Year-round', partner:'Zalando SE', online:true },
+  'ASOS':             { emoji:'🛍️', bg:'#fff8e8', pct:'10% OFF', cat:'Fashion · Online', note:'International fashion range on asos.com', how:'Automatic via UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'ASOS plc', online:true },
+  'Apple':            { emoji:'🍎', bg:'#f4f4f4', pct:'8% OFF', cat:'Electronics · Edu Store', note:'Mac, iPad, AirPods and accessories at the Apple Education Store', how:'Student status confirmed automatically via UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'Apple Inc.', online:true },
+  'Amazon Student':   { emoji:'💻', bg:'#e8f4ff', pct:'Prime free', cat:'Shopping · Online', note:'6 months Amazon Prime free, then 50% student discount', how:'Activate via UniCash student verification', pts:'1 Pt per €1', valid:'Once per student', partner:'Amazon.com Services', online:true },
+  'Notebooksbilliger':{ emoji:'🖥️', bg:'#f0fff4', pct:'5% OFF', cat:'Electronics · Online', note:'Laptops, PCs, monitors and accessories', how:'Automatic at checkout with UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'notebooksbilliger.de GmbH', online:true },
   'REWE':             { emoji:'🛒', bg:'#fff8e8', pct:'8% CB', cat:'Groceries', note:'8% cashback on all supermarket purchases', how:'Automatic when paying with UniCash', pts:'Cashback as points + 1 Pt per €1', valid:'Summer term 2026', partner:'REWE Group' },
-  'Lieferando':       { emoji:'🍕', bg:'#fff2e8', pct:'€3 OFF', cat:'Food Delivery', note:'€3 off per order with a minimum value of €15', how:'Automatic when paying with UniCash Wallet', pts:'1 Pt per €1', valid:'Max. 3× per month', partner:'Takeaway.com' },
+  'Lieferando':       { emoji:'🍕', bg:'#fff2e8', pct:'€3 OFF', cat:'Food Delivery', note:'€3 off per order with a minimum value of €15', how:'Automatic when paying with UniCash Wallet', pts:'1 Pt per €1', valid:'Max. 3× per month', partner:'Takeaway.com', online:true },
   'McDonald\'s':      { emoji:'🍔', bg:'#fff8f0', pct:'20% OFF', cat:'Fast Food', note:'All app orders and restaurant visits', how:'Show QR code in UniCash or link the app', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'McDonald\'s Germany LLC' },
   'Subway':           { emoji:'🌮', bg:'#fff4e6', pct:'15% OFF', cat:'Fast Food', note:'All subs, salads and wraps', how:'Automatic via UniCash at the terminal', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'Subway International' },
-  'HelloFresh':       { emoji:'🥗', bg:'#e8fff0', pct:'40% OFF', cat:'Meal Kit', note:'40% off your first box + 3rd box free · Weekly delivery', how:'Activate via UniCash student link', pts:'1 Pt per €1', valid:'New customers only', partner:'HelloFresh SE' },
-  'YFood':            { emoji:'🥤', bg:'#eef8ff', pct:'25% OFF', cat:'Nutrition', note:'Protein shakes, complete meals & bars', how:'Code applied automatically via UniCash', pts:'2 Pts per €1 · Bonus', valid:'Year-round', partner:'YFood Labs GmbH' },
+  'HelloFresh':       { emoji:'🥗', bg:'#e8fff0', pct:'40% OFF', cat:'Meal Kit', note:'40% off your first box + 3rd box free · Weekly delivery', how:'Activate via UniCash student link', pts:'1 Pt per €1', valid:'New customers only', partner:'HelloFresh SE', online:true },
+  'YFood':            { emoji:'🥤', bg:'#eef8ff', pct:'25% OFF', cat:'Nutrition', note:'Protein shakes, complete meals & bars', how:'Code applied automatically via UniCash', pts:'2 Pts per €1 · Bonus', valid:'Year-round', partner:'YFood Labs GmbH', online:true },
   'KFC':              { emoji:'🍗', bg:'#fff0ea', pct:'10% OFF', cat:'Fast Food', note:'All orders in the app and in-store', how:'Show QR code from UniCash', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'KFC Germany' },
   'Döner Kebab':      { emoji:'🌯', bg:'#f0f8ff', pct:'€1 OFF', cat:'Local Partners', note:'€1 off at all participating döner shops near campus', how:'Show QR code at purchase', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'Local Partners Regensburg' },
   'CineStar':         { emoji:'🎬', bg:'#fdf0ff', pct:'€5 Ticket', cat:'Leisure · Local', note:'All screenings on any day of the week at student price', how:'Book ticket via UniCash app or show QR code', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'CineStar Regensburg GmbH' },
   'Extrablatt Regensburg': { emoji:'🍕', bg:'#eef8ff', pct:'10% OFF', cat:'Restaurant · Local', note:'Breakfast, lunch and dinner', how:'Show UniCash QR code when paying', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'Café Extrablatt Regensburg' },
   'Kieser Training RGN': { emoji:'🏋️', bg:'#fff2e8', pct:'25% OFF', cat:'Fitness · Local', note:'Membership and personal training at Kieser Training', how:'Verify student ID + UniCash', pts:'1 Pt per €1', valid:'Cancel monthly', partner:'Kieser Training Regensburg' },
-  'Flixbus':          { emoji:'✈️', bg:'#fff0e8', pct:'25% OFF', cat:'Transport · Premium', note:'All long-distance trips across Germany and Europe', how:'Automatic via UniCash Premium', pts:'2 Pts per €1', valid:'UniCash Premium only', partner:'FlixMobility GmbH', premium:true },
-  'DocMorris':        { emoji:'💊', bg:'#f0faff', pct:'15% OFF', cat:'Pharmacy · Premium', note:'Over-the-counter medication and health products', how:'Automatic via UniCash Premium', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'DocMorris N.V.', premium:true },
-  'Xbox Game Pass':   { emoji:'🎮', bg:'#fff8e8', pct:'40% OFF', cat:'Gaming · Premium', note:'Xbox Game Pass Ultimate with 200+ games', how:'Activate via UniCash Premium student link', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'Microsoft Corporation', premium:true },
-  'Apple Music':      { emoji:'🎵', bg:'#f4f0ff', pct:'€1.99/mo', cat:'Music · Premium', note:'Student plan with 100M songs and Spatial Audio', how:'Automatic via UniCash Premium', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'Apple Inc.', premium:true },
-  'Booking.com':      { emoji:'🏨', bg:'#eef8ff', pct:'12% OFF', cat:'Travel · Premium', note:'Hotels, hostels and holiday homes worldwide', how:'Automatic via UniCash Premium at checkout', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'Booking.com B.V.', premium:true },
+  'Flixbus':          { emoji:'✈️', bg:'#fff0e8', pct:'25% OFF', cat:'Transport · Premium', note:'All long-distance trips across Germany and Europe', how:'Automatic via UniCash Premium', pts:'2 Pts per €1', valid:'UniCash Premium only', partner:'FlixMobility GmbH', premium:true, online:true },
+  'DocMorris':        { emoji:'💊', bg:'#f0faff', pct:'15% OFF', cat:'Pharmacy · Premium', note:'Over-the-counter medication and health products', how:'Automatic via UniCash Premium', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'DocMorris N.V.', premium:true, online:true },
+  'Xbox Game Pass':   { emoji:'🎮', bg:'#fff8e8', pct:'40% OFF', cat:'Gaming · Premium', note:'Xbox Game Pass Ultimate with 200+ games', how:'Activate via UniCash Premium student link', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'Microsoft Corporation', premium:true, online:true },
+  'Apple Music':      { emoji:'🎵', bg:'#f4f0ff', pct:'€1.99/mo', cat:'Music · Premium', note:'Student plan with 100M songs and Spatial Audio', how:'Automatic via UniCash Premium', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'Apple Inc.', premium:true, online:true },
+  'Booking.com':      { emoji:'🏨', bg:'#eef8ff', pct:'12% OFF', cat:'Travel · Premium', note:'Hotels, hostels and holiday homes worldwide', how:'Automatic via UniCash Premium at checkout', pts:'1 Pt per €1', valid:'UniCash Premium only', partner:'Booking.com B.V.', premium:true, online:true },
 };
 
 function openOffer(name) {
@@ -2565,9 +2600,32 @@ function openOffer(name) {
     </div>
     ${needsUpgrade
       ? `<button class="modal-cta gold" onclick="showPremiumUpgrade()"><i class="ti ti-star-filled"></i> Upgrade to Premium · €3.99/mo</button>`
-      : `<button class="modal-cta" onclick="redeemOffer('${name}')"><i class="ti ti-check"></i> Claim offer now</button>`
+      : (d.online
+          ? `<button class="modal-cta" onclick="discoverCode('${name}')"><i class="ti ti-world"></i> Discover Now</button>`
+          : `<button class="modal-cta" onclick="redeemOffer('${name}')"><i class="ti ti-check"></i> Claim offer now</button>`)
     }
   `);
+}
+
+function discoverCode(name) {
+  const d = offerData[name] || {};
+  const code = (name.replace(/[^A-Za-z]/g,'').slice(0,4).toUpperCase() || 'UNI') + Math.floor(1000 + Math.random()*9000);
+  document.getElementById('modalBody').innerHTML = `
+    <div class="success-screen">
+      <div class="success-icon">🌐</div>
+      <div class="success-title">Your online code</div>
+      <div class="success-sub">${name} – ${d.pct||''}<br>Enter this code at checkout on the partner's website to redeem your student discount.</div>
+      <div style="background:var(--cream2);border-radius:14px;padding:18px;margin:24px 0;text-align:center;">
+        <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">Discount code</div>
+        <div style="font-family:'Syne',sans-serif;font-size:24px;font-weight:800;color:var(--navy);letter-spacing:3px;">${code}</div>
+      </div>
+      <button class="modal-cta" onclick="copyCode('${code}',this)"><i class="ti ti-copy"></i> Copy code</button>
+      <button class="modal-cta" style="background:var(--cream2);color:var(--navy);margin-top:10px;" onclick="closeModal()">Done</button>
+    </div>`;
+}
+function copyCode(code, btn) {
+  if (navigator.clipboard) navigator.clipboard.writeText(code).catch(()=>{});
+  if (btn) { btn.innerHTML = '<i class="ti ti-check"></i> Copied!'; }
 }
 
 function redeemOffer(name) {
@@ -2593,7 +2651,7 @@ function showPremiumUpgrade() {
       <div style="font-size:15px;color:var(--muted);margin-bottom:20px;">Only €3.99/month · Cancel anytime</div>
       <div style="background:rgba(45,198,83,0.1);border:1px solid rgba(45,198,83,0.25);border-radius:14px;padding:14px 20px;margin-bottom:24px;">
         <div style="font-size:18px;font-weight:700;color:var(--navy);">🚫 100% Ad-Free</div>
-        <div style="font-size:13px;color:var(--muted);margin-top:4px;">Keine Popups, keine Banner, keine Unterbrechungen</div>
+        <div style="font-size:13px;color:var(--muted);margin-top:4px;">No popups, no banners, no interruptions</div>
       </div>
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
@@ -2613,11 +2671,11 @@ let isPremiumUser = false;
 //  TRANSACTION DETAIL MODAL
 // ══════════════════════════════════════════
 const txData = [
-  { emoji:'☕', bg:'#fff2cc', name:'Campus Café',        meta:'Today, 09:14',      cat:'Food & Drinks',  amt:'-€2.55',   pts:'+3 Points',   status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00481' },
+  { emoji:'☕', bg:'#fff2cc', name:'Campus Café',        meta:'Today, 09:14',      cat:'Food & Drinks',  amt:'-€2.55',   pts:'+2 Points',   status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00481' },
   { emoji:'📚', bg:'#e3eeff', name:'UniShop Books',      meta:'Yesterday, 14:22',  cat:'Books & Uni',    amt:'-€18.40',  pts:'+18 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00479' },
   { emoji:'💸', bg:'#efffee', name:'Points Credit',      meta:'20 May, 00:01',     cat:'Cashback',       amt:'+820 Pts', pts:'',            status:'Completed', method:'Automatic',      ref:'UC-2026-00460' },
   { emoji:'🍽️', bg:'#f5f4f0', name:'Mensa Lunch',       meta:'19 May, 12:35',     cat:'Food & Drinks',  amt:'-€3.20',   pts:'+3 Points',   status:'Completed', method:'UniCash QR',     ref:'UC-2026-00455' },
-  { emoji:'🛒', bg:'#fff8e8', name:'REWE',               meta:'17 May, 17:44',     cat:'Groceries',      amt:'-€24.80',  pts:'+25 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00448' },
+  { emoji:'🛒', bg:'#fff8e8', name:'REWE',               meta:'17 May, 17:44',     cat:'Groceries',      amt:'-€24.80',  pts:'+24 Points',  status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00448' },
   { emoji:'🎬', bg:'#fdf0ff', name:'CineStar',           meta:'16 May, 19:00',     cat:'Leisure',        amt:'-€5.00',   pts:'+5 Points',   status:'Completed', method:'UniCash Ticket', ref:'UC-2026-00441' },
   { emoji:'🚌', bg:'#efffee', name:'MVV Semester Ticket',meta:'1 May, 08:00',      cat:'Transport',      amt:'-€189.00', pts:'+189 Points', status:'Completed', method:'UniCash Wallet', ref:'UC-2026-00400' },
   { emoji:'💸', bg:'#efffee', name:'Points Credit',      meta:'1 May, 00:01',      cat:'Cashback',       amt:'+2,600 Pts',pts:'',           status:'Completed', method:'Automatic',      ref:'UC-2026-00399' },
@@ -2659,13 +2717,13 @@ function openTx(idx) {
 }
 
 // ══════════════════════════════════════════
-//  ACTION MODALS (Senden / Aufladen / Zahlen / Auszahlen)
+//  ACTION MODALS (Send / Top up / Pay / Redeem)
 // ══════════════════════════════════════════
 function openSendMoney() {
   resetMiniAmount();
-  openModal('Geld senden', `
+  openModal('Send Money', `
     <div class="action-screen">
-      <div style="font-size:13px;color:var(--muted);margin:16px 0 10px;">An wen möchtest du senden?</div>
+      <div style="font-size:13px;color:var(--muted);margin:16px 0 10px;">Who would you like to send to?</div>
       <div class="recipient-row" onclick="selectRecipient('Lisa Meier','LM','#e3aeff')">
         <div class="recipient-avatar" style="background:#9C59D1;">LM</div>
         <div><div style="font-weight:500;color:var(--navy);">Lisa Meier</div><div style="font-size:12px;color:var(--muted);">Uni Regensburg · @lisa.m</div></div>
@@ -2683,14 +2741,14 @@ function openSendMoney() {
       </div>
       <div class="recipient-row" style="background:transparent;border:1.5px dashed var(--cream3);">
         <div style="width:44px;height:44px;border-radius:50%;background:var(--cream2);display:flex;align-items:center;justify-content:center;font-size:20px;">🔍</div>
-        <div style="color:var(--muted);font-size:14px;">Kontakt suchen oder IBAN eingeben</div>
+        <div style="color:var(--muted);font-size:14px;">Search contact or enter IBAN</div>
       </div>
     </div>`);
 }
 
 function selectRecipient(name, initials, color) {
   resetMiniAmount();
-  document.getElementById('modalTitle').textContent = `Senden an ${name}`;
+  document.getElementById('modalTitle').textContent = `Send to ${name}`;
   document.getElementById('modalBody').innerHTML = `
     <div class="action-screen">
       <div style="text-align:center;padding:20px 0 8px;">
@@ -2698,7 +2756,7 @@ function selectRecipient(name, initials, color) {
         <div style="font-weight:600;color:var(--navy);font-size:16px;">${name}</div>
       </div>
       <div class="amount-input-wrap">
-        <div class="amount-display" id="miniAmountDisplay">€0,00</div>
+        <div class="amount-display" id="miniAmountDisplay">€0.00</div>
         <div class="amount-label">Enter amount</div>
       </div>
       <div class="mini-numpad">
@@ -2706,49 +2764,49 @@ function selectRecipient(name, initials, color) {
           ${k==='del'?'<i class="ti ti-backspace"></i>':k}</button>`).join('')}
       </div>
       <div style="margin-bottom:12px;">
-        <input style="width:100%;background:var(--cream2);border:1.5px solid transparent;border-radius:12px;padding:13px 16px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--navy);outline:none;" placeholder="Verwendungszweck (optional)" />
+        <input style="width:100%;background:var(--cream2);border:1.5px solid transparent;border-radius:12px;padding:13px 16px;font-size:14px;font-family:'DM Sans',sans-serif;color:var(--navy);outline:none;" placeholder="Reference (optional)" />
       </div>
-      <button class="modal-cta" onclick="confirmSend('${name}')"><i class="ti ti-send"></i> Jetzt senden</button>
+      <button class="modal-cta" onclick="confirmSend('${name}')"><i class="ti ti-send"></i> Send now</button>
     </div>`;
 }
 
 function confirmSend(name) {
   const el = document.getElementById('miniAmountDisplay');
-  const amt = el ? el.textContent : '€0,00';
+  const amt = el ? el.textContent : '€0.00';
   document.getElementById('modalBody').innerHTML = `
     <div class="success-screen">
       <div class="success-icon">✅</div>
-      <div class="success-title">${amt} gesendet!</div>
-      <div class="success-sub">Die Zahlung an <strong>${name}</strong> wurde erfolgreich durchgeführt und sofort gutgeschrieben.</div>
-      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Fertig</button>
+      <div class="success-title">${amt} sent!</div>
+      <div class="success-sub">Your payment to <strong>${name}</strong> was completed successfully and credited instantly.</div>
+      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Done</button>
     </div>`;
 }
 
 function openTopUp() {
   resetMiniAmount();
-  openModal('Konto aufladen', `
+  openModal('Top up account', `
     <div class="action-screen">
-      <div style="font-size:13px;color:var(--muted);margin:16px 0 10px;">Choose an amount or enter your own eigenen ein:</div>
+      <div style="font-size:13px;color:var(--muted);margin:16px 0 10px;">Choose an amount or enter your own:</div>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px;">
         ${[10,20,50,100,200,500].map(v=>`<button onclick="setTopUpAmount(${v})" style="background:var(--cream2);border:none;border-radius:12px;padding:16px;font-family:'Syne',sans-serif;font-size:18px;font-weight:700;color:var(--navy);cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">€${v}</button>`).join('')}
       </div>
       <div class="amount-input-wrap">
-        <div class="amount-display" id="miniAmountDisplay">€0,00</div>
-        <div class="amount-label">Eigenen Enter amount</div>
+        <div class="amount-display" id="miniAmountDisplay">€0.00</div>
+        <div class="amount-label">Enter amount</div>
       </div>
       <div class="mini-numpad">
         ${[1,2,3,4,5,6,7,8,9,'',0,'del'].map(k=>`<button class="mini-key${k===''?' empty':k==='del'?' del':''}" ${k===''?'disabled':''} onclick="${k==='del'?"miniKey('del')":k!==''?`miniKey('${k}')`:''}">
           ${k==='del'?'<i class="ti ti-backspace"></i>':k}</button>`).join('')}
       </div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Über: <strong style="color:var(--navy);">Sparkasse ••••4821</strong> · <span style="color:var(--blue);cursor:pointer;">Konto ändern</span></div>
-      <button class="modal-cta" onclick="confirmTopUp()"><i class="ti ti-arrow-down"></i> Jetzt aufladen</button>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Via: <strong style="color:var(--navy);">Sparkasse ••••4821</strong> · <span style="color:var(--blue);cursor:pointer;">Change account</span></div>
+      <button class="modal-cta" onclick="confirmTopUp()"><i class="ti ti-arrow-down"></i> Top up now</button>
     </div>`);
 }
 
 function setTopUpAmount(v) {
   miniAmount = String(v * 100);
   const el = document.getElementById('miniAmountDisplay');
-  if (el) el.textContent = '€' + v.toFixed(2).replace('.',',');
+  if (el) el.textContent = '€' + v.toFixed(2);
 }
 
 function confirmTopUp() {
@@ -2759,12 +2817,12 @@ function confirmTopUp() {
       <div class="success-icon">💶</div>
       <div class="success-title">${amt} topped up!</div>
       <div class="success-sub">Your UniCash balance has been topped up successfully. The amount is available instantly.</div>
-      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Fertig</button>
+      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Done</button>
     </div>`;
 }
 
 function openPayNow() {
-  openModal('Pay Now', `
+  openModal('Show QR Code', `
     <div class="action-screen">
       <div style="text-align:center;padding:12px 0 0;">
         <div style="font-size:14px;color:var(--muted);margin-bottom:20px;">Show this QR code at checkout</div>
@@ -2811,8 +2869,8 @@ function openPayNow() {
         <div style="font-size:13px;color:var(--muted);">Max Mustermann · UniCash Wallet</div>
       </div>
       <div style="display:flex;gap:10px;margin-top:20px;">
-        <button class="modal-cta" style="background:var(--cream2);color:var(--navy);" onclick=""><i class="ti ti-refresh"></i> Code erneuern</button>
-        <button class="modal-cta" onclick="closeModal()"><i class="ti ti-circle-check"></i> Fertig</button>
+        <button class="modal-cta" style="background:var(--cream2);color:var(--navy);" onclick=""><i class="ti ti-refresh"></i> Refresh code</button>
+        <button class="modal-cta" onclick="closeModal()"><i class="ti ti-circle-check"></i> Done</button>
       </div>
     </div>`);
 }
@@ -2821,29 +2879,29 @@ function openPayout() {
   openModal('Redeem Points', `
     <div class="action-screen">
       <div style="background:linear-gradient(135deg,rgba(212,160,23,0.1),rgba(212,160,23,0.04));border:1px solid rgba(212,160,23,0.2);border-radius:16px;padding:20px 24px;margin:16px 0 20px;display:flex;align-items:center;justify-content:space-between;">
-        <div><div style="font-size:13px;color:var(--muted);">Available Points</div><div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--navy);">2.840</div></div>
-        <div style="text-align:right;"><div style="font-size:13px;color:var(--muted);">Redemption Value</div><div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--green);">€28,40</div></div>
+        <div><div style="font-size:13px;color:var(--muted);">Available Points</div><div style="font-family:'Syne',sans-serif;font-size:32px;font-weight:800;color:var(--navy);">2,840</div></div>
+        <div style="text-align:right;"><div style="font-size:13px;color:var(--muted);">Redemption Value</div><div style="font-family:'Syne',sans-serif;font-size:28px;font-weight:800;color:var(--green);">€28.40</div></div>
       </div>
-      <div style="font-size:13px;color:var(--muted);margin-bottom:12px;font-weight:500;">Wähle eine Option:</div>
+      <div style="font-size:13px;color:var(--muted);margin-bottom:12px;font-weight:500;">Choose an option:</div>
       <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px;">
-        <div onclick="confirmPayout('€28,40 auf dein Bankkonto','💶')" style="display:flex;align-items:center;gap:16px;background:var(--cream2);border-radius:14px;padding:16px 18px;cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">
+        <div onclick="confirmPayout('€28.40 to your bank account','💶')" style="display:flex;align-items:center;gap:16px;background:var(--cream2);border-radius:14px;padding:16px 18px;cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">
           <div style="font-size:28px;">💶</div>
           <div><div style="font-weight:600;color:var(--navy);">€28.40 to Bank Account</div><div style="font-size:13px;color:var(--muted);">Sparkasse ••••4821 · 1–2 business days</div></div>
           <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
         </div>
         <div onclick="confirmPayout('€5 Campus Café Voucher','☕')" style="display:flex;align-items:center;gap:16px;background:var(--cream2);border-radius:14px;padding:16px 18px;cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">
           <div style="font-size:28px;">☕</div>
-          <div><div style="font-weight:600;color:var(--navy);">€5 Campus Café Voucher</div><div style="font-size:13px;color:var(--muted);">500 points · Instant verfügbar</div></div>
+          <div><div style="font-weight:600;color:var(--navy);">€5 Campus Café Voucher</div><div style="font-size:13px;color:var(--muted);">500 points · Instant</div></div>
           <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
         </div>
         <div onclick="confirmPayout('€10 REWE Voucher','🛒')" style="display:flex;align-items:center;gap:16px;background:var(--cream2);border-radius:14px;padding:16px 18px;cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">
           <div style="font-size:28px;">🛒</div>
-          <div><div style="font-weight:600;color:var(--navy);">€10 REWE Voucher</div><div style="font-size:13px;color:var(--muted);">1,000 points · Instant verfügbar</div></div>
+          <div><div style="font-weight:600;color:var(--navy);">€10 REWE Voucher</div><div style="font-size:13px;color:var(--muted);">1,000 points · Instant</div></div>
           <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
         </div>
         <div onclick="confirmPayout('1 Month Spotify free','🎵')" style="display:flex;align-items:center;gap:16px;background:var(--cream2);border-radius:14px;padding:16px 18px;cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">
           <div style="font-size:28px;">🎵</div>
-          <div><div style="font-weight:600;color:var(--navy);">1 Month Spotify free</div><div style="font-size:13px;color:var(--muted);">300 points · Instant verfügbar</div></div>
+          <div><div style="font-weight:600;color:var(--navy);">1 Month Spotify free</div><div style="font-size:13px;color:var(--muted);">300 points · Instant</div></div>
           <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
         </div>
       </div>
@@ -2855,8 +2913,8 @@ function confirmPayout(label, ico) {
     <div class="success-screen">
       <div class="success-icon">${ico}</div>
       <div class="success-title">Payout requested!</div>
-      <div class="success-sub"><strong>${label}</strong><br>wurde erfolgreich beantragt und will be credited shortly.</div>
-      <button class="modal-cta gold" style="margin-top:24px;" onclick="closeModal()">Super, danke!</button>
+      <div class="success-sub"><strong>${label}</strong><br>has been requested successfully and will be credited shortly.</div>
+      <button class="modal-cta gold" style="margin-top:24px;" onclick="closeModal()">Great, thanks!</button>
     </div>`;
 }
 
@@ -2874,13 +2932,13 @@ function openVoucher(name, pts, value) {
           <span style="color:var(--muted);font-size:13px;">Voucher value</span><strong style="color:var(--navy);">${value}</strong>
         </div>
         <div style="display:flex;justify-content:space-between;margin-bottom:8px;">
-          <span style="color:var(--muted);font-size:13px;">Points deducted</span><strong style="color:var(--red);">−${pts} Punkte</strong>
+          <span style="color:var(--muted);font-size:13px;">Points deducted</span><strong style="color:var(--red);">−${pts} points</strong>
         </div>
         <div style="display:flex;justify-content:space-between;border-top:1px solid var(--cream3);padding-top:8px;margin-top:8px;">
-          <span style="color:var(--muted);font-size:13px;">Remaining points</span><strong style="color:var(--navy);">${2840 - parseInt(pts.replace('.',''))} Punkte</strong>
+          <span style="color:var(--muted);font-size:13px;">Remaining points</span><strong style="color:var(--navy);">${Math.floor(2840 - parseInt(pts.replace(/[.,]/g,'')))} points</strong>
         </div>
       </div>
-      <button class="modal-cta gold" onclick="confirmVoucher('${name}','${value}')"><i class="ti ti-ticket"></i> Redeem voucherzt einlösen</button>
+      <button class="modal-cta gold" onclick="confirmVoucher('${name}','${value}')"><i class="ti ti-ticket"></i> Redeem voucher now</button>
     </div>`);
 }
 
@@ -2894,7 +2952,7 @@ function confirmVoucher(name, value) {
         <div style="font-size:12px;color:var(--muted);margin-bottom:6px;">Your voucher code</div>
         <div style="font-family:'Syne',sans-serif;font-size:22px;font-weight:800;color:var(--navy);letter-spacing:4px;">UCVC-${Math.random().toString(36).slice(2,8).toUpperCase()}</div>
       </div>
-      <button class="modal-cta" onclick="closeModal()">Fertig</button>
+      <button class="modal-cta" onclick="closeModal()">Done</button>
     </div>`;
 }
 
@@ -2965,6 +3023,15 @@ function confirmPremium() {
     }
   });
 
+  // 8. Highlight double points on home screen
+  const homeCb = document.getElementById('homePremiumCashback');
+  if (homeCb) homeCb.style.display = 'flex';
+  const cbChange = document.getElementById('homeCashbackChange');
+  if (cbChange) {
+    cbChange.innerHTML = '<i class="ti ti-star-filled" style="font-size:12px;color:var(--gold);"></i> 2× points active';
+    cbChange.style.color = 'var(--gold)';
+  }
+
   document.getElementById('modalBody').innerHTML = `
     <div class="success-screen">
       <div class="success-icon">⭐</div>
@@ -2980,36 +3047,62 @@ function confirmPremium() {
 function openAddPayment() {
   openModal('Add Payment Method', `
     <div style="margin-top:8px;">
-      <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Wähle eine Payment Method:</div>
-      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Apple Pay','🍎','Über dein iPhone oder Apple Watch')">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:16px;">Choose a payment method:</div>
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Apple Pay','🍎','Pay with your iPhone or Apple Watch')">
         <div class="modal-detail-ico" style="background:#fff2cc;font-size:22px;">🍎</div>
-        <div><div class="modal-detail-val">Apple Pay</div><div class="modal-detail-label">Mit Face ID bezahlen</div></div>
+        <div><div class="modal-detail-val">Apple Pay</div><div class="modal-detail-label">Pay with Face ID</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
       </div>
-      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Google Pay','🤖','Über dein Android-Gerät')">
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Google Pay','🤖','Pay with your Android device')">
         <div class="modal-detail-ico" style="background:#e8f4ff;font-size:22px;">🤖</div>
-        <div><div class="modal-detail-val">Google Pay</div><div class="modal-detail-label">Mit Android bezahlen</div></div>
+        <div><div class="modal-detail-val">Google Pay</div><div class="modal-detail-label">Pay with Android device</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
       </div>
-      <div class="modal-detail-row" style="cursor:pointer;" onclick="confirmAddPayment('Kreditkarte','💳','Visa, Mastercard oder Amex')">
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="openCardForm()">
         <div class="modal-detail-ico" style="background:#e3eeff;font-size:22px;">💳</div>
-        <div><div class="modal-detail-val">Kreditkarte</div><div class="modal-detail-label">Visa, Mastercard, Amex</div></div>
+        <div><div class="modal-detail-val">Credit / Debit Card</div><div class="modal-detail-label">Visa, Mastercard, Amex</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
       </div>
-      <div class="modal-detail-row" style="cursor:pointer;border:none;" onclick="confirmAddPayment('Bankkonto (IBAN)','🏦','Direkt vom Girokonto abbuchen')">
+      <div class="modal-detail-row" style="cursor:pointer;border:none;" onclick="confirmAddPayment('Bank account (IBAN)','🏦','Direct debit from your current account')">
         <div class="modal-detail-ico" style="background:#f0fff4;font-size:22px;">🏦</div>
-        <div><div class="modal-detail-val">Bankkonto (IBAN)</div><div class="modal-detail-label">Lastschrift von Girokonto</div></div>
+        <div><div class="modal-detail-val">Bank account (IBAN)</div><div class="modal-detail-label">Direct debit from current account</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
       </div>
     </div>`);
+}
+function openCardForm() {
+  document.getElementById('modalTitle').textContent = 'Add Card';
+  document.getElementById('modalBody').innerHTML = `
+    <div style="margin-top:12px;">
+      <div style="margin-bottom:14px;">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Card number</div>
+        <input type="text" inputmode="numeric" maxlength="19" placeholder="1234 5678 9012 3456" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(.{4})/g,'$1 ').trim()" style="width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:12px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--navy);box-sizing:border-box;outline:none;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--cream3)'">
+      </div>
+      <div style="margin-bottom:14px;">
+        <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Cardholder name</div>
+        <input type="text" placeholder="Max Mustermann" style="width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:12px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--navy);box-sizing:border-box;outline:none;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--cream3)'">
+      </div>
+      <div style="display:flex;gap:12px;margin-bottom:20px;">
+        <div style="flex:1;">
+          <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Expiry</div>
+          <input type="text" inputmode="numeric" maxlength="5" placeholder="MM/YY" oninput="this.value=this.value.replace(/[^0-9]/g,'').replace(/(.{2})/,'$1/').slice(0,5)" style="width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:12px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--navy);box-sizing:border-box;outline:none;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--cream3)'">
+        </div>
+        <div style="flex:1;">
+          <div style="font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">CVC</div>
+          <input type="text" inputmode="numeric" maxlength="4" placeholder="123" oninput="this.value=this.value.replace(/[^0-9]/g,'')" style="width:100%;background:var(--cream2);border:1.5px solid var(--cream3);border-radius:12px;padding:14px 16px;font-family:'DM Sans',sans-serif;font-size:15px;color:var(--navy);box-sizing:border-box;outline:none;" onfocus="this.style.borderColor='var(--blue)'" onblur="this.style.borderColor='var(--cream3)'">
+        </div>
+      </div>
+      <button class="modal-cta" onclick="confirmAddPayment('Card','💳','Your card has been securely linked.')"><i class="ti ti-lock"></i> Add card securely</button>
+      <div style="font-size:11px;color:var(--muted);text-align:center;margin-top:10px;"><i class="ti ti-shield-lock" style="font-size:12px;"></i> Encrypted & PCI-DSS compliant · This is a demo</div>
+    </div>`;
 }
 function confirmAddPayment(name, ico, desc) {
   document.getElementById('modalBody').innerHTML = `
     <div class="success-screen">
       <div class="success-icon">${ico}</div>
-      <div class="success-title">${name} hinzugefügt!</div>
-      <div class="success-sub">${desc}<br>Deine Payment Method ist jetzt aktiv.</div>
-      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Fertig</button>
+      <div class="success-title">${name} added!</div>
+      <div class="success-sub">${desc}<br>Your payment method is now active.</div>
+      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Done</button>
     </div>`;
 }
 
@@ -3026,7 +3119,7 @@ function openWalletAdd() {
       </div>
       <div class="modal-detail-row" style="cursor:pointer;border:none;" onclick="confirmWalletAdd('Google Wallet')">
         <div class="modal-detail-ico" style="background:#e8f4ff;font-size:22px;">🤖</div>
-        <div><div class="modal-detail-val">Google Wallet</div><div class="modal-detail-label">Auf Android-Gerät hinzufügen</div></div>
+        <div><div class="modal-detail-val">Google Wallet</div><div class="modal-detail-label">Add to Android device</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
       </div>
     </div>`);
@@ -3035,9 +3128,9 @@ function confirmWalletAdd(wallet) {
   document.getElementById('modalBody').innerHTML = `
     <div class="success-screen">
       <div class="success-icon">✅</div>
-      <div class="success-title">Zu ${wallet} hinzugefügt!</div>
+      <div class="success-title">Added to ${wallet}!</div>
       <div class="success-sub">Your UniCash student ID is now saved in your ${wallet}.</div>
-      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Fertig</button>
+      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Done</button>
     </div>`;
 }
 
@@ -3046,10 +3139,10 @@ function confirmWalletAdd(wallet) {
 // ══════════════════════════════════════════
 function openCategoryDetail(cat, amount, pct, color) {
   const txMap = {
-    'Food & Drinks': [['☕','Campus Café','Today','−€2.55','+3 Pts'],['🍽️','Mensa','19 May','−€3.20','+3 Pts'],['🌮','Subway','15 May','−€8.90','+9 Pts'],['☕','Campus Café','14 May','−€3.10','+3 Pts'],['🍕','Lieferando','12 May','−€18.30','+18 Pts']],
-    'Books & Uni': [['📚','UniShop Books','Yesterday','−€18.40','+18 Pts'],['📚','UniShop Books','10 May','−€22.60','+23 Pts'],['🖊️','Stationery','5 May','−€8.00','+8 Pts']],
+    'Food & Drinks': [['☕','Campus Café','Today','−€2.55','+2 Pts'],['🍽️','Mensa','19 May','−€3.20','+3 Pts'],['🌮','Subway','15 May','−€8.90','+8 Pts'],['☕','Campus Café','14 May','−€3.10','+3 Pts'],['🍕','Lieferando','12 May','−€18.30','+18 Pts']],
+    'Books & Uni': [['📚','UniShop Books','Yesterday','−€18.40','+18 Pts'],['📚','UniShop Books','10 May','−€22.60','+22 Pts'],['🖊️','Stationery','5 May','−€8.00','+8 Pts']],
     'Transport': [['🚌','MVV Ticket','8 May','−€12.00','+12 Pts'],['✈️','Flixbus','2 May','−€19.00','+19 Pts'],['🚌','MVV Day Pass','28 Apr','−€9.20','+9 Pts']],
-    'Other': [['💊','DocMorris','11. Mai','−€14,50','+15 Pts'],['🛒','REWE','17. Mai','−€24.80','+25 Pts'],['🎬','CineStar','16. Mai','−€5.00','+5 Pts'],['🛒','REWE','7. Mai','−€31,20','+31 Pts']]
+    'Other': [['💊','DocMorris','11 May','−€14.50','+14 Pts'],['🛒','REWE','17 May','−€24.80','+24 Pts'],['🎬','CineStar','16 May','−€5.00','+5 Pts'],['🛒','REWE','7 May','−€31.20','+31 Pts']]
   };
   const rows = txMap[cat] || [];
   openModal(cat, `
@@ -3088,14 +3181,31 @@ const locations = [
   {name:'Köln · Lindenthal', label:'Universität zu Köln'},
 ];
 function openLocationPicker() {
+  const cur = document.getElementById('locationLabel')?.textContent || '';
   openModal('Change Location', `
-    <div style="font-size:13px;color:var(--muted);margin:12px 0 16px;">Wähle deinen Campus oder Hochschulstandort:</div>
+    <div style="font-size:13px;color:var(--muted);margin:12px 0 16px;">Select your campus or university location:</div>
     <div style="display:flex;flex-direction:column;gap:8px;">
-      ${locations.map((loc,i)=>`
-      <div onclick="setLocation('${loc.name}');closeModal();" style="display:flex;align-items:center;gap:14px;background:${loc.name===document.getElementById('locationLabel')?.textContent?'rgba(59,91,219,0.1)':'var(--cream2)'};border-radius:12px;padding:14px 16px;cursor:pointer;transition:background 0.12s;border:${loc.name===document.getElementById('locationLabel')?.textContent?'1.5px solid rgba(59,91,219,0.3)':'1.5px solid transparent'};" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='${loc.name===document.getElementById('locationLabel')?.textContent?'rgba(59,91,219,0.1)':'var(--cream2)'}'">
-        <div style="font-size:20px;">📍</div>
-        <div><div style="font-size:14px;font-weight:500;color:var(--navy);">${loc.name}</div><div style="font-size:12px;color:var(--muted);">${loc.label}</div></div>
-      </div>`).join('')}
+      ${locations.map((loc) => {
+        const isActive = loc.name === 'Regensburg · Galgenberg';
+        const isCurrent = loc.name === cur;
+        if (isActive) {
+          return '<div onclick="setLocation(\'' + loc.name + '\');closeModal();" style="display:flex;align-items:center;gap:14px;background:' + (isCurrent ? 'rgba(59,91,219,0.1)' : 'var(--cream2)') + ';border-radius:12px;padding:14px 16px;cursor:pointer;transition:background 0.12s;border:' + (isCurrent ? '1.5px solid rgba(59,91,219,0.3)' : '1.5px solid transparent') + ';" onmouseover="this.style.background=\'var(--cream3)\'" onmouseout="this.style.background=\'' + (isCurrent ? 'rgba(59,91,219,0.1)' : 'var(--cream2)') + '\'">' +
+            '<div style="font-size:20px;">📍</div>' +
+            '<div style="flex:1;"><div style="font-size:14px;font-weight:500;color:var(--navy);">' + loc.name + '</div><div style="font-size:12px;color:var(--muted);">' + loc.label + '</div></div>' +
+            (isCurrent ? '<span style="background:var(--blue);color:white;border-radius:6px;padding:3px 8px;font-size:11px;font-weight:600;flex-shrink:0;">Active</span>' : '') +
+            '</div>';
+        } else {
+          return '<div style="display:flex;align-items:center;gap:14px;background:var(--cream2);border-radius:12px;padding:14px 16px;cursor:default;opacity:0.5;border:1.5px solid transparent;">' +
+            '<div style="font-size:20px;filter:grayscale(1);">📍</div>' +
+            '<div style="flex:1;"><div style="font-size:14px;font-weight:500;color:var(--navy);">' + loc.name + '</div><div style="font-size:12px;color:var(--muted);">' + loc.label + '</div></div>' +
+            '<span style="background:rgba(122,122,140,0.15);color:var(--muted);border-radius:6px;padding:3px 9px;font-size:11px;font-weight:500;white-space:nowrap;flex-shrink:0;border:1px solid rgba(122,122,140,0.2);">Coming Soon</span>' +
+            '</div>';
+        }
+      }).join('')}
+    </div>
+    <div style="margin-top:16px;background:rgba(59,91,219,0.06);border:1px solid rgba(59,91,219,0.15);border-radius:12px;padding:12px 16px;display:flex;align-items:center;gap:10px;">
+      <i class="ti ti-map-pin" style="color:var(--blue);font-size:16px;flex-shrink:0;"></i>
+      <div style="font-size:13px;color:var(--muted);">UniCash is currently live in <strong style="color:var(--navy);">Regensburg</strong>. More cities launching soon!</div>
     </div>`);
 }
 function setLocation(name) {
@@ -3208,7 +3318,7 @@ function updateUIForPremium() {
   // Update sidebar promo
   const sidePromo = document.getElementById('sidebarPremiumPromo');
   if (sidePromo) {
-    sidePromo.innerHTML = `<div style="font-size:13px;font-weight:700;color:var(--gold);">⭐ Premium active</div><div style="font-size:11px;color:rgba(245,240,232,0.5);">Werbefrei · 2× Points überall</div>`;
+    sidePromo.innerHTML = `<div style="font-size:13px;font-weight:700;color:var(--gold);">⭐ Premium active</div><div style="font-size:11px;color:rgba(245,240,232,0.5);">Ad-free · 2× points everywhere</div>`;
     sidePromo.style.background = 'linear-gradient(135deg,rgba(212,160,23,0.25),rgba(212,160,23,0.1))';
     sidePromo.onclick = null; sidePromo.style.cursor='default';
   }
