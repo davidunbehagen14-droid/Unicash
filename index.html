@@ -857,7 +857,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="notif-item">
               <div class="notif-ico" style="background:#efffee;">💸</div>
               <div style="flex:1;">
-                <div class="notif-text"><strong>Cashback credited!</strong><br/>€8.20 from your REWE purchase has been credited.</div>
+                <div class="notif-text"><strong>Cashback credited!</strong><br/>€0.74 from your REWE purchase has been credited.</div>
                 <div class="notif-time">2 hours ago</div>
               </div>
               <div class="notif-dot"></div>
@@ -949,12 +949,12 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
       <div class="stats-row">
         <div class="stat-card">
           <div class="stat-label">Expenses (June)</div>
-          <div class="stat-value">€312</div>
+          <div class="stat-value">€65</div>
           <div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> vs. last month</div>
         </div>
         <div class="stat-card" id="homeCashbackCard">
           <div class="stat-label">Cashback Earned</div>
-          <div class="stat-value">€34.20</div>
+          <div class="stat-value">€4.80</div>
           <div class="stat-change up" id="homeCashbackChange"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> +18% vs. last month</div>
         </div>
         <div class="stat-card">
@@ -999,7 +999,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openTx(4)">
               <div class="tx-ico" style="background:#fff8e8;">🛒</div>
-              <div class="tx-inf"><div class="tx-name">REWE Partner Offer</div><div class="tx-meta">17 May · 8% Cashback</div></div>
+              <div class="tx-inf"><div class="tx-name">REWE Partner Offer</div><div class="tx-meta">17 May · 3% Cashback</div></div>
               <div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+24 Points</div></div>
             </div>
           </div>
@@ -1030,7 +1030,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             <div class="tx-row" style="cursor:pointer;" onclick="openOffer('REWE')">
               <div class="tx-ico" style="background:#fff8e8;">🛒</div>
               <div class="tx-inf"><div class="tx-name">REWE</div><div class="tx-meta">Groceries · Cashback</div></div>
-              <div class="pill gold">8% CB</div>
+              <div class="pill gold">3% CB</div>
             </div>
             <div class="tx-row" style="cursor:pointer;" onclick="openOffer('CineStar')">
               <div class="tx-ico" style="background:#fdf0ff;">🎬</div>
@@ -1193,8 +1193,8 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             </div>
 
             <!-- REWE Friedenstraße (shopping) -->
-            <div class="map-pin" data-cat="shopping" style="top:300px;left:660px;" onclick="showMapPin('REWE Friedenstraße','🛒','Friedenstr. 23 · 8% Cashback','shopping',380,'shopping')">
-              <div class="map-pin-bubble gold">🛒 REWE · 8% CB</div>
+            <div class="map-pin" data-cat="shopping" style="top:300px;left:660px;" onclick="showMapPin('REWE Friedenstraße','🛒','Friedenstr. 23 · 3% Cashback','shopping',380,'shopping')">
+              <div class="map-pin-bubble gold">🛒 REWE · 3% CB</div>
               <div class="map-pin-tail gold"></div><div class="map-pin-dot gold"></div>
             </div>
 
@@ -1293,7 +1293,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="tx-row" data-cat="shopping" style="cursor:pointer;" onclick="openOffer('REWE')">
           <div class="tx-ico" style="background:#fff8e8;">🛒</div>
           <div class="tx-inf"><div class="tx-name">REWE Friedenstraße</div><div class="tx-meta">380 m · Friedenstr. 23 · Groceries</div></div>
-          <div style="text-align:right;"><div class="pill gold">8% CB</div></div>
+          <div style="text-align:right;"><div class="pill gold">3% CB</div></div>
         </div>
         <div class="tx-row" data-cat="shopping" style="cursor:pointer;" onclick="openOffer('REWE')">
           <div class="tx-ico" style="background:#fff8e8;">🛒</div>
@@ -1592,14 +1592,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
                   <div class="id-exp">Valid until 09/2027</div>
                 </div>
                 <!-- Wallet button instead of gold chip -->
-                <button class="wallet-btn"><i class="ti ti-wallet" style="font-size:14px;"></i> Zu Wallet hinzufügen</button>
+                <button class="wallet-btn" onclick="openWalletAdd()"><i class="ti ti-wallet" style="font-size:14px;"></i> Add to Wallet</button>
               </div>
             </div>
           </div>
 
           <div style="display:flex;gap:10px;margin-top:14px;">
             <button style="flex:1;background:var(--navy);color:var(--cream);border:none;border-radius:12px;padding:14px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;" onclick="openPayNow()"><i class="ti ti-qrcode"></i> Show QR Code</button>
-            <button class="wallet-btn" style="flex:1;border-radius:12px;padding:14px;justify-content:center;" onclick="openWalletAdd()"><i class="ti ti-wallet" style="font-size:14px;"></i> Zu Wallet hinzufügen</button>
+            <button class="wallet-btn" style="flex:1;border-radius:12px;padding:14px;justify-content:center;" onclick="openWalletAdd()"><i class="ti ti-wallet" style="font-size:14px;"></i> Add to Wallet</button>
           </div>
         </div>
 
@@ -1612,7 +1612,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
             </div>
             <div class="setting-item" style="padding:14px 0;">
               <div class="setting-ico"><i class="ti ti-school"></i></div>
-              <div><div class="setting-label">Universität</div><div class="setting-sub">Universität Regensburg</div></div>
+              <div><div class="setting-label">University</div><div class="setting-sub">Universität Regensburg</div></div>
             </div>
             <div class="setting-item" style="padding:14px 0;">
               <div class="setting-ico"><i class="ti ti-book"></i></div>
@@ -1647,12 +1647,12 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div class="tx-row">
           <div class="tx-ico" style="background:#e3eeff;font-size:18px;">💳</div>
           <div class="tx-inf"><div class="tx-name">Sparkasse Debit Card</div><div class="tx-meta">•••• •••• •••• 4821 · Expires 12/2027</div></div>
-          <span class="pill green">Primär</span>
+          <span class="pill green">Primary</span>
         </div>
         <div class="tx-row">
           <div class="tx-ico" style="background:#fff2cc;font-size:18px;">🍎</div>
           <div class="tx-inf"><div class="tx-name">Apple Pay</div><div class="tx-meta">Connected via Wallet</div></div>
-          <span class="pill blue">Aktiv</span>
+          <span class="pill blue">Active</span>
         </div>
       </div>
     </div>
@@ -1660,10 +1660,10 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
     <!-- ── STATS ── -->
     <div class="page" id="tab-stats">
       <div class="stats-row" style="margin-bottom:28px;">
-        <div class="stat-card"><div class="stat-label">Total Expenses (June)</div><div class="stat-value">€312</div><div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> vs. May +12%</div></div>
-        <div class="stat-card"><div class="stat-label">Total Cashback</div><div class="stat-value">€34.20</div><div class="stat-change up">+18%</div></div>
+        <div class="stat-card"><div class="stat-label">Total Expenses (June)</div><div class="stat-value">€65</div><div class="stat-change up"><i class="ti ti-arrow-up-right" style="font-size:12px;"></i> vs. May +12%</div></div>
+        <div class="stat-card"><div class="stat-label">Total Cashback</div><div class="stat-value">€4.80</div><div class="stat-change up">+18%</div></div>
         <div class="stat-card"><div class="stat-label">Discounts Applied</div><div class="stat-value">23</div><div class="stat-change" style="color:var(--blue);">This month</div></div>
-        <div class="stat-card"><div class="stat-label">Avg. Daily Spend</div><div class="stat-value">€14.80</div><div class="stat-change down"><i class="ti ti-arrow-down-right" style="font-size:12px;"></i> vs. last week</div></div>
+        <div class="stat-card"><div class="stat-label">Avg. Daily Spend</div><div class="stat-value">€2.80</div><div class="stat-change down"><i class="ti ti-arrow-down-right" style="font-size:12px;"></i> vs. last week</div></div>
       </div>
 
       <div class="grid2">
@@ -1681,14 +1681,14 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
               <circle cx="60" cy="60" r="48" fill="none" stroke="#3B5BDB" stroke-width="20" stroke-dasharray="60 241" stroke-dashoffset="-120" transform="rotate(-90 60 60)"/>
               <circle cx="60" cy="60" r="48" fill="none" stroke="#2DC653" stroke-width="20" stroke-dasharray="45 256" stroke-dashoffset="-180" transform="rotate(-90 60 60)"/>
               <circle cx="60" cy="60" r="48" fill="none" stroke="#D4A017" stroke-width="20" stroke-dasharray="76 225" stroke-dashoffset="-225" transform="rotate(-90 60 60)"/>
-              <text x="60" y="56" text-anchor="middle" font-family="Syne" font-weight="800" font-size="18" fill="#1A1B4B">€312</text>
+              <text x="60" y="56" text-anchor="middle" font-family="Syne" font-weight="800" font-size="18" fill="#1A1B4B">€65</text>
               <text x="60" y="72" text-anchor="middle" font-family="DM Sans" font-size="10" fill="#7A7A8C">total</text>
             </svg>
             <div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Food & Drinks','€118',38,'var(--navy)')"><div class="legend-dot" style="background:var(--navy);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Food & Drinks</div><div style="font-size:12px;color:var(--muted);">€118 · 38%</div></div></div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Books & Uni','€59',19,'var(--blue)')"><div class="legend-dot" style="background:var(--blue);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Books & Uni</div><div style="font-size:12px;color:var(--muted);">€59 · 19%</div></div></div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Transport','€44',14,'var(--green)')"><div class="legend-dot" style="background:var(--green);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Transport</div><div style="font-size:12px;color:var(--muted);">€44 · 14%</div></div></div>
-              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Other','€91',29,'var(--gold)')"><div class="legend-dot" style="background:var(--gold);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Other</div><div style="font-size:12px;color:var(--muted);">€91 · 29%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Food & Drinks','€26',40,'var(--navy)')"><div class="legend-dot" style="background:var(--navy);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Food & Drinks</div><div style="font-size:12px;color:var(--muted);">€26 · 40%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Books & Uni','€13',20,'var(--blue)')"><div class="legend-dot" style="background:var(--blue);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Books & Uni</div><div style="font-size:12px;color:var(--muted);">€13 · 20%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Transport','€10',15,'var(--green)')"><div class="legend-dot" style="background:var(--green);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Transport</div><div style="font-size:12px;color:var(--muted);">€10 · 15%</div></div></div>
+              <div class="legend-item" style="cursor:pointer;" onclick="openCategoryDetail('Other','€16',25,'var(--gold)')"><div class="legend-dot" style="background:var(--gold);"></div><div><div style="font-size:14px;font-weight:500;color:var(--navy);">Other</div><div style="font-size:12px;color:var(--muted);">€16 · 25%</div></div></div>
             </div>
           </div>
         </div>
@@ -1697,12 +1697,12 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
       <div class="sec-hdr" style="margin-top:8px;"><div class="sec-title">All Transactions</div></div>
       <div class="tx-table">
         <div class="tx-row"><div class="tx-ico" style="background:#fff2cc;">☕</div><div class="tx-inf"><div class="tx-name">Campus Café</div><div class="tx-meta">Today, 09:14 · Discount applied</div></div><div class="tx-right"><div class="tx-amt neg">−€2.55</div><div class="tx-cb">+2 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#e3eeff;">📚</div><div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">Yesterday · 20% student discount</div></div><div class="tx-right"><div class="tx-amt neg">−€18.40</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#e3eeff;">📚</div><div class="tx-inf"><div class="tx-name">UniShop Books</div><div class="tx-meta">Yesterday · 20% student discount</div></div><div class="tx-right"><div class="tx-amt neg">−€18.40</div><div class="tx-cb">+18 Points</div></div></div>
         <div class="tx-row"><div class="tx-ico" style="background:#efffee;">💸</div><div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">20 May · Automatic</div></div><div class="tx-right"><div class="tx-amt pos">+820 Pts</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#f5f4f0;">🍽️</div><div class="tx-inf"><div class="tx-name">Mensa Lunch</div><div class="tx-meta">19 May · Student price</div></div><div class="tx-right"><div class="tx-amt neg">−€3.20</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#fff8e8;">🛒</div><div class="tx-inf"><div class="tx-name">REWE</div><div class="tx-meta">17 May · 8% Cashback</div></div><div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+24 Points</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#fdf0ff;">🎬</div><div class="tx-inf"><div class="tx-name">CineStar</div><div class="tx-meta">16 May · Student ticket</div></div><div class="tx-right"><div class="tx-amt neg">−€5.00</div></div></div>
-        <div class="tx-row"><div class="tx-ico" style="background:#efffee;">🚌</div><div class="tx-inf"><div class="tx-name">MVV Semester Ticket</div><div class="tx-meta">1 May · Semester renewal</div></div><div class="tx-right"><div class="tx-amt neg">−€189.00</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#f5f4f0;">🍽️</div><div class="tx-inf"><div class="tx-name">Mensa Lunch</div><div class="tx-meta">19 May · Student price</div></div><div class="tx-right"><div class="tx-amt neg">−€3.20</div><div class="tx-cb">+3 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fff8e8;">🛒</div><div class="tx-inf"><div class="tx-name">REWE</div><div class="tx-meta">17 May · 3% Cashback</div></div><div class="tx-right"><div class="tx-amt neg">−€24.80</div><div class="tx-cb">+24 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#fdf0ff;">🎬</div><div class="tx-inf"><div class="tx-name">CineStar</div><div class="tx-meta">16 May · Student ticket</div></div><div class="tx-right"><div class="tx-amt neg">−€5.00</div><div class="tx-cb">+5 Points</div></div></div>
+        <div class="tx-row"><div class="tx-ico" style="background:#efffee;">🚌</div><div class="tx-inf"><div class="tx-name">MVV Semester Ticket</div><div class="tx-meta">1 May · Semester renewal</div></div><div class="tx-right"><div class="tx-amt neg">−€189.00</div><div class="tx-cb">+189 Points</div></div></div>
         <div class="tx-row"><div class="tx-ico" style="background:#efffee;">💸</div><div class="tx-inf"><div class="tx-name">Points Credit</div><div class="tx-meta">1 May · Monthly payout</div></div><div class="tx-right"><div class="tx-amt pos">+2,600 Pts</div></div></div>
       </div>
     </div>
@@ -1714,7 +1714,7 @@ html,body{height:100%;font-family:'DM Sans',sans-serif;background:var(--cream);}
         <div>
           <div class="profile-name">Max Mustermann</div>
           <div class="profile-sub">max.mustermann@stud.uni-regensburg.de</div>
-          <div class="profile-tag"><i class="ti ti-award" style="font-size:14px;"></i> Gold Student · Member since March 2026</div>
+          <div class="profile-tag"><i class="ti ti-calendar" style="font-size:14px;"></i> Member since March 2026</div>
         </div>
         <div style="margin-left:auto;text-align:right;display:flex;flex-direction:column;align-items:flex-end;">
           <div style="font-family:'DM Sans',sans-serif;font-size:42px;font-weight:700;color:var(--cream);letter-spacing:-1px;line-height:1;">2,840</div>
@@ -2096,7 +2096,7 @@ function setOfferFilter(btn, cat) {
 window.addEventListener('load', () => {
   // Bar chart with tooltip
   const months = ['Jan','Feb','Mar','Apr','May','Jun'];
-  const vals   = [210, 285, 190, 340, 278, 312];
+  const vals   = [52, 48, 61, 71, 58, 65];
   const max    = Math.max(...vals.filter(v => v > 0));
   const wrap   = document.getElementById('barChart');
   months.forEach((m, i) => {
@@ -2169,11 +2169,17 @@ function openSettings() {
         <div><div class="modal-detail-val">Privacy & Data</div><div class="modal-detail-label">GDPR settings · Data export</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
       </div>
+      ${isPremiumUser ? `
+      <div class="modal-detail-row" style="border:none;">
+        <div class="modal-detail-ico" style="background:rgba(212,160,23,0.1);"><i class="ti ti-star-filled" style="color:var(--gold);"></i></div>
+        <div><div class="modal-detail-val" style="color:var(--gold);">UniCash Premium</div><div class="modal-detail-label">Active · Ad-free · 2× points everywhere</div></div>
+        <span class="pill gold" style="margin-left:auto;">Active</span>
+      </div>` : `
       <div class="modal-detail-row" onclick="showPremiumUpgrade()" style="cursor:pointer;border:none;">
         <div class="modal-detail-ico" style="background:rgba(212,160,23,0.1);"><i class="ti ti-star-filled" style="color:var(--gold);"></i></div>
         <div><div class="modal-detail-val" style="color:var(--gold);">UniCash Premium</div><div class="modal-detail-label">Ad-free · 50+ deals · €3.99/mo</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--gold);"></i>
-      </div>
+      </div>`}
     </div>
     <button class="modal-cta" style="background:rgba(232,66,74,0.1);color:var(--red);margin-top:8px;" onclick="doLogout();closeModal()">
       <i class="ti ti-logout"></i> Log Out
@@ -2222,7 +2228,9 @@ function openSecuritySettings() {
 }
 
 function openChangePIN() {
+  window._cp = [];
   document.getElementById('modalTitle').textContent = 'Change PIN';
+  const keys = [1,2,3,4,5,6,7,8,9,'',0,'⌫'];
   document.getElementById('modalBody').innerHTML = `
     <div style="text-align:center;padding:20px 0;">
       <div style="font-size:48px;margin-bottom:12px;">🔐</div>
@@ -2230,9 +2238,44 @@ function openChangePIN() {
       <div style="display:flex;gap:14px;justify-content:center;margin-bottom:24px;" id="cpDotWrap">
         ${[0,1,2,3].map(i=>`<div style="width:16px;height:16px;border-radius:50%;border:2px solid var(--cream3);background:transparent;transition:all 0.2s;" id="cpd${i}"></div>`).join('')}
       </div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:8px;width:240px;margin:0 auto 20px;">
-        ${[1,2,3,4,5,6,7,8,9,'.',0,'⌫'].map(k=>`<button onclick="${k==='.'?'':k==='⌫'?"(function(){window._cp=(window._cp||[]);window._cp.pop();[0,1,2,3].forEach(function(i){var el=document.getElementById('cpd'+i);if(el){el.style.background=i<window._cp.length?'var(--navy)':'transparent';el.style.borderColor=i<window._cp.length?'var(--navy)':'var(--cream3)';}});})()":"(function(){window._cp=(window._cp||[]);if(window._cp.length>=4)return;window._cp.push('"+k+"');[0,1,2,3].forEach(function(i){var el=document.getElementById('cpd'+i);if(el){el.style.background=i<window._cp.length?'var(--navy)':'transparent';el.style.borderColor=i<window._cp.length?'var(--navy)':'var(--cream3)';}});if(window._cp.length===4)setTimeout(function(){document.getElementById('modalBody').innerHTML='<div class=\"success-screen\"><div class=\"success-icon\">✅</div><div class=\"success-title\">PIN changed!</div><div class=\"success-sub\">Your new PIN is active and will be required on next login.</div><button class=\"modal-cta\" onclick=\"closeModal()\">Done</button></div>';},300);})()"})" style="background:var(--cream2);border:none;border-radius:12px;padding:14px 0;font-family:'DM Sans',sans-serif;font-size:18px;font-weight:600;color:${k==='.'?'transparent':'var(--navy)'};cursor:pointer;${k==='.'?'pointer-events:none;':''}">${k}</button>`).join('')}
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;width:240px;margin:0 auto 8px;">
+        ${keys.map(k => {
+          if (k === '') return `<div></div>`;
+          const action = (k === '⌫') ? 'cpDelete()' : `cpPress('${k}')`;
+          return `<button onclick="${action}" style="background:var(--cream2);border:none;border-radius:14px;padding:16px 0;font-family:'DM Sans',sans-serif;font-size:20px;font-weight:600;color:var(--navy);cursor:pointer;transition:background 0.12s;" onmouseover="this.style.background='var(--cream3)'" onmouseout="this.style.background='var(--cream2)'">${k}</button>`;
+        }).join('')}
       </div>
+    </div>`;
+}
+function cpRenderDots() {
+  [0,1,2,3].forEach(i => {
+    const el = document.getElementById('cpd' + i);
+    if (el) {
+      const filled = i < window._cp.length;
+      el.style.background = filled ? 'var(--navy)' : 'transparent';
+      el.style.borderColor = filled ? 'var(--navy)' : 'var(--cream3)';
+    }
+  });
+}
+function cpPress(k) {
+  window._cp = window._cp || [];
+  if (window._cp.length >= 4) return;
+  window._cp.push(k);
+  cpRenderDots();
+  if (window._cp.length === 4) setTimeout(cpDone, 320);
+}
+function cpDelete() {
+  window._cp = window._cp || [];
+  window._cp.pop();
+  cpRenderDots();
+}
+function cpDone() {
+  document.getElementById('modalBody').innerHTML = `
+    <div class="success-screen">
+      <div class="success-icon">✅</div>
+      <div class="success-title">PIN changed!</div>
+      <div class="success-sub">Your new PIN is active and will be required on next login.</div>
+      <button class="modal-cta" onclick="closeModal()">Done</button>
     </div>`;
 }
 
@@ -2240,9 +2283,14 @@ function openPrivacySettings() {
   document.getElementById('modalTitle').textContent = 'Privacy & Data';
   document.getElementById('modalBody').innerHTML = `
     <div style="margin-top:8px;">
-      <div class="modal-detail-row" style="cursor:pointer;">
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="openLegalDoc('privacy')">
         <div class="modal-detail-ico"><i class="ti ti-file-text"></i></div>
-        <div><div class="modal-detail-val">Privacy Policy</div><div class="modal-detail-label">GDPR-compliant · Updated 01/2026</div></div>
+        <div><div class="modal-detail-val">Privacy Policy</div><div class="modal-detail-label">How we collect, use & protect your data</div></div>
+        <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
+      </div>
+      <div class="modal-detail-row" style="cursor:pointer;" onclick="openLegalDoc('terms')">
+        <div class="modal-detail-ico"><i class="ti ti-license"></i></div>
+        <div><div class="modal-detail-val">Terms &amp; Conditions</div><div class="modal-detail-label">Your agreement with UniCash · Read the full terms</div></div>
         <i class="ti ti-chevron-right" style="margin-left:auto;color:var(--muted);"></i>
       </div>
       <div class="modal-detail-row" style="cursor:pointer;" onclick="this.nextElementSibling&&(this.nextElementSibling.style.display='block')">
@@ -2266,6 +2314,67 @@ function confirmDeleteAccount() {
       <button class="modal-cta" style="background:var(--cream2);color:var(--navy);margin-bottom:10px;" onclick="closeModal()">Cancel</button>
       <button class="modal-cta" style="background:var(--red);" onclick="doLogout();closeModal()">Yes, delete my account</button>
     </div>`;
+}
+
+function openLegalDoc(type) {
+  const isTerms = type === 'terms';
+  const title = isTerms ? 'Terms & Conditions' : 'Privacy Policy';
+  document.getElementById('modalTitle').textContent = title;
+
+  const termsBody = `
+    <p style="margin:0 0 16px;"><strong>Effective date:</strong> 1 January 2026 &nbsp;·&nbsp; <strong>Version 2.4</strong></p>
+    <p style="margin:0 0 18px;">These Terms &amp; Conditions ("Terms") govern your use of the UniCash mobile and web application ("the Service"), operated by UniCash GmbH (i.G.), Galgenbergstraße 32, 93053 Regensburg, Germany. By creating an account or using the Service, you agree to be bound by these Terms.</p>
+
+    <h4 style="margin:0 0 6px;">1. Eligibility</h4>
+    <p style="margin:0 0 18px;">The Service is available exclusively to currently enrolled students who can verify their status via their university's official single sign-on (SSO). You must be at least 18 years of age, or have the consent of a legal guardian, to register. UniCash reserves the right to suspend any account where student status cannot be confirmed.</p>
+
+    <h4 style="margin:0 0 6px;">2. The Service</h4>
+    <p style="margin:0 0 18px;">UniCash provides a digital student ID, a points-and-rewards wallet, and access to partner discounts. Points are earned at a rate of one (1) point per euro (€1) spent through participating partners, rounded down to the nearest whole point. 100 points are redeemable for €1.00 in vouchers or cash credit. Points carry no cash value until redeemed and may expire 24 months after they are earned.</p>
+
+    <h4 style="margin:0 0 6px;">3. UniCash Premium</h4>
+    <p style="margin:0 0 18px;">UniCash Premium is an optional subscription billed at €3.99 per month. Premium members earn double (2×) points with all partners, receive an ad-free experience, and unlock exclusive deals. The subscription renews automatically each month and may be cancelled at any time, effective at the end of the current billing period. No partial refunds are issued for unused periods.</p>
+
+    <h4 style="margin:0 0 6px;">4. Partner Offers &amp; Cashback</h4>
+    <p style="margin:0 0 18px;">Discounts and cashback rates are set by participating partners and may change or be withdrawn at any time without notice. UniCash acts solely as an intermediary and is not party to any purchase you make with a partner. Disputes regarding goods or services must be resolved directly with the relevant partner.</p>
+
+    <h4 style="margin:0 0 6px;">5. Acceptable Use</h4>
+    <p style="margin:0 0 18px;">You agree not to misuse the Service, including by attempting to manipulate point balances, sharing your account credentials, or using the Service for any unlawful purpose. UniCash may suspend or terminate accounts that violate these Terms.</p>
+
+    <h4 style="margin:0 0 6px;">6. Liability</h4>
+    <p style="margin:0 0 18px;">To the extent permitted by law, the Service is provided "as is". UniCash is liable only for damages caused by intent or gross negligence. Liability for slight negligence is limited to the breach of essential contractual obligations and to foreseeable, typical damage.</p>
+
+    <h4 style="margin:0 0 6px;">7. Governing Law</h4>
+    <p style="margin:0 0 8px;">These Terms are governed by the laws of the Federal Republic of Germany. The place of jurisdiction, where legally permissible, is Regensburg.</p>`;
+
+  const privacyBody = `
+    <p style="margin:0 0 16px;"><strong>Effective date:</strong> 1 January 2026 &nbsp;·&nbsp; <strong>GDPR-compliant</strong></p>
+    <p style="margin:0 0 18px;">This Privacy Policy explains how UniCash GmbH (i.G.) processes your personal data in accordance with the EU General Data Protection Regulation (GDPR) and the German Federal Data Protection Act (BDSG).</p>
+
+    <h4 style="margin:0 0 6px;">1. Data We Collect</h4>
+    <p style="margin:0 0 18px;">We process your name, university email address, enrolment status, transaction history within the Service, and the payment methods you connect. Student status is confirmed via your university's SSO; we do not store your university password.</p>
+
+    <h4 style="margin:0 0 6px;">2. How We Use Your Data</h4>
+    <p style="margin:0 0 18px;">Your data is used to operate the Service, calculate and credit points, display relevant partner offers, and comply with legal obligations. We process your data on the basis of contract performance (Art. 6(1)(b) GDPR) and, where applicable, your consent (Art. 6(1)(a) GDPR).</p>
+
+    <h4 style="margin:0 0 6px;">3. Sharing With Partners</h4>
+    <p style="margin:0 0 18px;">When you redeem an offer, we share only the minimum information needed to apply your discount. We never sell your personal data to third parties for advertising.</p>
+
+    <h4 style="margin:0 0 6px;">4. Your Rights</h4>
+    <p style="margin:0 0 18px;">You have the right to access, rectify, export, and erase your personal data, to restrict or object to processing, and to withdraw consent at any time. You may exercise these rights in-app under Privacy &amp; Data, or by contacting privacy@unicash.app. You also have the right to lodge a complaint with a supervisory authority.</p>
+
+    <h4 style="margin:0 0 6px;">5. Data Retention</h4>
+    <p style="margin:0 0 8px;">We retain your data only as long as your account is active or as required to meet legal retention obligations. When you delete your account, your personal data is removed within 30 days, except where statutory retention periods apply.</p>`;
+
+  document.getElementById('modalBody').innerHTML = `
+    <div style="display:flex;align-items:center;gap:10px;margin:4px 0 16px;cursor:pointer;color:var(--muted);font-size:13px;" onclick="openPrivacySettings()">
+      <i class="ti ti-arrow-left"></i> Back to Privacy &amp; Data
+    </div>
+    <div style="background:var(--cream2);border:1px solid var(--cream3);border-radius:14px;padding:22px 22px;max-height:50vh;overflow-y:auto;font-family:'DM Sans',sans-serif;font-size:13.5px;line-height:1.65;color:var(--navy);">
+      <div style="font-family:'Syne',sans-serif;font-size:20px;font-weight:800;margin-bottom:4px;">UniCash ${title}</div>
+      <div style="font-size:12px;color:var(--muted);margin-bottom:18px;">UniCash GmbH (i.G.) · Regensburg</div>
+      ${isTerms ? termsBody : privacyBody}
+    </div>
+    <button class="modal-cta" style="margin-top:16px;" onclick="closeModal()">Close</button>`;
 }
 
 function markAllRead() {
@@ -2536,7 +2645,7 @@ const offerData = {
   'Apple':            { emoji:'🍎', bg:'#f4f4f4', pct:'8% OFF', cat:'Electronics · Edu Store', note:'Mac, iPad, AirPods and accessories at the Apple Education Store', how:'Student status confirmed automatically via UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'Apple Inc.', online:true },
   'Amazon Student':   { emoji:'💻', bg:'#e8f4ff', pct:'Prime free', cat:'Shopping · Online', note:'6 months Amazon Prime free, then 50% student discount', how:'Activate via UniCash student verification', pts:'1 Pt per €1', valid:'Once per student', partner:'Amazon.com Services', online:true },
   'Notebooksbilliger':{ emoji:'🖥️', bg:'#f0fff4', pct:'5% OFF', cat:'Electronics · Online', note:'Laptops, PCs, monitors and accessories', how:'Automatic at checkout with UniCash', pts:'1 Pt per €1', valid:'Year-round', partner:'notebooksbilliger.de GmbH', online:true },
-  'REWE':             { emoji:'🛒', bg:'#fff8e8', pct:'8% CB', cat:'Groceries', note:'8% cashback on all supermarket purchases', how:'Automatic when paying with UniCash', pts:'Cashback as points + 1 Pt per €1', valid:'Summer term 2026', partner:'REWE Group' },
+  'REWE':             { emoji:'🛒', bg:'#fff8e8', pct:'3% CB', cat:'Groceries', note:'3% cashback on all supermarket purchases', how:'Automatic when paying with UniCash', pts:'Cashback as points + 1 Pt per €1', valid:'Summer term 2026', partner:'REWE Group' },
   'Lieferando':       { emoji:'🍕', bg:'#fff2e8', pct:'€3 OFF', cat:'Food Delivery', note:'€3 off per order with a minimum value of €15', how:'Automatic when paying with UniCash Wallet', pts:'1 Pt per €1', valid:'Max. 3× per month', partner:'Takeaway.com', online:true },
   'McDonald\'s':      { emoji:'🍔', bg:'#fff8f0', pct:'20% OFF', cat:'Fast Food', note:'All app orders and restaurant visits', how:'Show QR code in UniCash or link the app', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'McDonald\'s Germany LLC' },
   'Subway':           { emoji:'🌮', bg:'#fff4e6', pct:'15% OFF', cat:'Fast Food', note:'All subs, salads and wraps', how:'Automatic via UniCash at the terminal', pts:'1 Pt per €1', valid:'Summer term 2026', partner:'Subway International' },
@@ -2964,7 +3073,7 @@ function openEditProfile() {
     <div style="margin-top:16px;">
       <div style="display:flex;align-items:center;gap:20px;background:var(--cream2);border-radius:16px;padding:20px;margin-bottom:20px;">
         <div style="width:60px;height:60px;background:var(--blue);border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-size:20px;font-weight:800;color:white;flex-shrink:0;">MM</div>
-        <div><div style="font-size:16px;font-weight:600;color:var(--navy);">Max Mustermann</div><div style="font-size:13px;color:var(--muted);">Gold Student · Member since March 2026</div></div>
+        <div><div style="font-size:16px;font-weight:600;color:var(--navy);">Max Mustermann</div><div style="font-size:13px;color:var(--muted);">Member since March 2026</div></div>
         <button style="margin-left:auto;background:var(--navy);color:var(--cream);border:none;border-radius:10px;padding:8px 14px;font-size:12px;cursor:pointer;">Change photo</button>
       </div>
       ${[['Full Name','Max Mustermann','ti-user'],['Email','max.mustermann@stud.uni-regensburg.de','ti-mail'],['Phone','+49 151 ••••••••','ti-phone'],['University','Universität Regensburg','ti-school'],['Degree','Business Administration · Semester 4','ti-book']].map(([l,v,i])=>`
@@ -3125,12 +3234,29 @@ function openWalletAdd() {
     </div>`);
 }
 function confirmWalletAdd(wallet) {
+  const isApple = wallet === 'Apple Wallet';
+  document.getElementById('modalTitle').textContent = wallet;
   document.getElementById('modalBody').innerHTML = `
-    <div class="success-screen">
+    <div style="text-align:center;padding:18px 0 6px;">
+      <div style="font-size:13px;color:var(--muted);margin-bottom:18px;">Adding your student ID to ${wallet}…</div>
+      <div style="margin:0 auto;width:280px;border-radius:18px;padding:18px 20px;text-align:left;background:linear-gradient(135deg,#1a1b4b,#2d2f6b);color:#f5f0e8;box-shadow:0 12px 30px rgba(26,27,75,0.35);position:relative;overflow:hidden;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div style="font-family:'Syne',sans-serif;font-weight:800;font-size:15px;">UniCash · Student ID</div>
+          <div style="font-size:18px;">${isApple ? '' : '🤖'}</div>
+        </div>
+        <div style="margin-top:18px;font-size:11px;opacity:0.6;">CARDHOLDER</div>
+        <div style="font-weight:600;font-size:15px;">Max Mustermann</div>
+        <div style="margin-top:10px;display:flex;justify-content:space-between;font-size:11px;opacity:0.6;">
+          <div>UNIVERSITÄT REGENSBURG</div><div>VALID 09/2027</div>
+        </div>
+        <div style="margin-top:10px;height:30px;background:repeating-linear-gradient(90deg,#f5f0e8 0 2px,transparent 2px 5px);border-radius:4px;opacity:0.85;"></div>
+      </div>
+    </div>
+    <div class="success-screen" style="padding-top:14px;">
       <div class="success-icon">✅</div>
       <div class="success-title">Added to ${wallet}!</div>
-      <div class="success-sub">Your UniCash student ID is now saved in your ${wallet}.</div>
-      <button class="modal-cta" style="margin-top:24px;" onclick="closeModal()">Done</button>
+      <div class="success-sub">Your UniCash student ID is now available in ${wallet}. Open it anytime from your lock screen — no app needed.</div>
+      <button class="modal-cta" style="margin-top:20px;" onclick="closeModal()">Done</button>
     </div>`;
 }
 
@@ -3139,10 +3265,10 @@ function confirmWalletAdd(wallet) {
 // ══════════════════════════════════════════
 function openCategoryDetail(cat, amount, pct, color) {
   const txMap = {
-    'Food & Drinks': [['☕','Campus Café','Today','−€2.55','+2 Pts'],['🍽️','Mensa','19 May','−€3.20','+3 Pts'],['🌮','Subway','15 May','−€8.90','+8 Pts'],['☕','Campus Café','14 May','−€3.10','+3 Pts'],['🍕','Lieferando','12 May','−€18.30','+18 Pts']],
-    'Books & Uni': [['📚','UniShop Books','Yesterday','−€18.40','+18 Pts'],['📚','UniShop Books','10 May','−€22.60','+22 Pts'],['🖊️','Stationery','5 May','−€8.00','+8 Pts']],
-    'Transport': [['🚌','MVV Ticket','8 May','−€12.00','+12 Pts'],['✈️','Flixbus','2 May','−€19.00','+19 Pts'],['🚌','MVV Day Pass','28 Apr','−€9.20','+9 Pts']],
-    'Other': [['💊','DocMorris','11 May','−€14.50','+14 Pts'],['🛒','REWE','17 May','−€24.80','+24 Pts'],['🎬','CineStar','16 May','−€5.00','+5 Pts'],['🛒','REWE','7 May','−€31.20','+31 Pts']]
+    'Food & Drinks': [['☕','Campus Café','Today','−€2.55','+2 Pts'],['🍽️','Mensa','19 May','−€3.20','+3 Pts'],['🌮','Subway','15 May','−€8.90','+8 Pts'],['☕','Campus Café','14 May','−€3.10','+3 Pts'],['🥐','Bakery Wimmer','11 May','−€2.45','+2 Pts'],['🧋','Coffee To-Go','8 May','−€5.80','+5 Pts']],
+    'Books & Uni': [['📚','UniShop Books','Yesterday','−€9.00','+9 Pts'],['🖊️','Stationery','5 May','−€4.00','+4 Pts']],
+    'Transport': [['🚌','MVV Day Pass','8 May','−€6.00','+6 Pts'],['🚌','MVV Single','3 May','−€4.00','+4 Pts']],
+    'Other': [['🛒','REWE','17 May','−€11.20','+11 Pts'],['🧴','dm Drugstore','10 May','−€4.80','+4 Pts']]
   };
   const rows = txMap[cat] || [];
   openModal(cat, `
@@ -3151,7 +3277,7 @@ function openCategoryDetail(cat, amount, pct, color) {
       <div style="font-family:'DM Sans',sans-serif;font-size:28px;font-weight:700;color:var(--navy);">${amount}</div>
       <div style="margin-left:auto;font-size:22px;font-weight:600;color:var(--muted);">${pct}%</div>
     </div>
-    <div style="font-size:13px;color:var(--muted);margin-bottom:12px;font-weight:500;">Einzelne Transaktionen:</div>
+    <div style="font-size:13px;color:var(--muted);margin-bottom:12px;font-weight:500;">Individual transactions:</div>
     <div style="display:flex;flex-direction:column;gap:8px;">
       ${rows.map(([ico,name,date,amt,pts])=>`
       <div style="display:flex;align-items:center;gap:14px;background:var(--cream2);border-radius:12px;padding:14px;">
